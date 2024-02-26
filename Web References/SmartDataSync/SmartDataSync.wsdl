@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="TestSite">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestSiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TestSiteResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getEmptyTranDataSet">
+        <s:complexType />
+      </s:element>
+      <s:element name="getEmptyTranDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getEmptyTranDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResultDataSet">
+        <s:complexType />
+      </s:element>
+      <s:element name="ResultDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResultDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDailyTrans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BranchCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TranDt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateDailyTransResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateDailyTransResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:TestSite" />
+  </wsdl:message>
+  <wsdl:message name="TestSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:TestSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="getEmptyTranDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:getEmptyTranDataSet" />
+  </wsdl:message>
+  <wsdl:message name="getEmptyTranDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:getEmptyTranDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResultDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:ResultDataSet" />
+  </wsdl:message>
+  <wsdl:message name="ResultDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:ResultDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDailyTransSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateDailyTrans" />
+  </wsdl:message>
+  <wsdl:message name="UpdateDailyTransSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateDailyTransResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SmartDataSyncSoap">
+    <wsdl:operation name="TestSite">
+      <wsdl:input message="tns:TestSiteSoapIn" />
+      <wsdl:output message="tns:TestSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getEmptyTranDataSet">
+      <wsdl:input message="tns:getEmptyTranDataSetSoapIn" />
+      <wsdl:output message="tns:getEmptyTranDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResultDataSet">
+      <wsdl:input message="tns:ResultDataSetSoapIn" />
+      <wsdl:output message="tns:ResultDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDailyTrans">
+      <wsdl:input message="tns:UpdateDailyTransSoapIn" />
+      <wsdl:output message="tns:UpdateDailyTransSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SmartDataSyncSoap" type="tns:SmartDataSyncSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestSite">
+      <soap:operation soapAction="http://tempuri.org/TestSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmptyTranDataSet">
+      <soap:operation soapAction="http://tempuri.org/getEmptyTranDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResultDataSet">
+      <soap:operation soapAction="http://tempuri.org/ResultDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDailyTrans">
+      <soap:operation soapAction="http://tempuri.org/UpdateDailyTrans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SmartDataSyncSoap12" type="tns:SmartDataSyncSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestSite">
+      <soap12:operation soapAction="http://tempuri.org/TestSite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmptyTranDataSet">
+      <soap12:operation soapAction="http://tempuri.org/getEmptyTranDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResultDataSet">
+      <soap12:operation soapAction="http://tempuri.org/ResultDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDailyTrans">
+      <soap12:operation soapAction="http://tempuri.org/UpdateDailyTrans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartDataSync">
+    <wsdl:port name="SmartDataSyncSoap" binding="tns:SmartDataSyncSoap">
+      <soap:address location="http://localhost:1863/SmartWeb/WebService/SmartDataSync.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SmartDataSyncSoap12" binding="tns:SmartDataSyncSoap12">
+      <soap12:address location="http://localhost:1863/SmartWeb/WebService/SmartDataSync.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

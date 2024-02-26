@@ -1,0 +1,146 @@
+
+generallisttype
+
+FTYPE	File Type	Y	16
+FCAT	File Category	Y	17
+
+generallist
+
+OPFC	OP REGISTER	FCAT	-1	Y		2013-09-24 00:00:00.000
+IPFC	IP REGISTER	FCAT	-2	Y		2013-09-24 00:00:00.000
+
+OPFT	OP	FTYPE	1	Y		2013-09-24 00:00:00.000
+IPFT	IP	FTYPE	2	Y		2013-09-24 00:00:00.000
+
+
+filelocationmas
+
+IPD	IP DEPARTMENT	Y	System Generated.	Y
+OPD	OP DEPARTMENT	Y	System Generated.	Y
+
+
+
+
+ 
+create view [dbo].[viewFileMas] as 
+SELECT fm_code AS 'FileCode'
+      ,fm_desc AS 'FileNm'
+      ,fm_typeptr as 'FileTypeCode'
+      ,(select genl_desc from generallist where  genl_code=filemas.fm_typeptr and genl_mode='FTYPE' ) AS 'FileTypNm'
+      ,fm_categoryptr as 'FileCatCode',
+      (select genl_desc from generallist where  genl_code=filemas.fm_categoryptr and genl_mode='FCAT' ) AS 'FileCatNm'
+      ,fm_locationptr as 'FileLocCode'
+      ,fl_desc as 'FileLocNm'      
+      ,fm_filerack as 'FileRack'
+      ,fm_transferable as 'Transferable'
+      ,fm_transfertooutside as 'TransferOutSide'
+      ,fm_authdperson as 'AuthPerson'
+      ,fm_active as 'Active'
+      ,fm_remarks as 'Remarks'
+FROM  filemas left join filelocationmas on(fl_code=fm_locationptr)
+  union all
+SELECT  op_no AS 'FileCode'
+      ,op_title + ' '+ op_fname +' ' + op_lname  AS 'FileNm'
+      ,'OPFT' as 'FileTypeCode'
+      ,(select genl_desc from generallist where  genl_code='OPFT' and genl_mode='FTYPE' ) AS 'FileTypNm'
+      ,'OPFC' as 'FileCatCode',
+      (select genl_desc from generallist where  genl_code='OPFC' and genl_mode='FCAT' ) AS 'FileCatNm'
+      ,'OPD' as 'FileLocCode',
+      (select fl_desc from filelocationmas where  fl_code='OPD') AS 'FileLocNm'       
+      ,op_filerack as 'FileRack'
+      ,'Y' as 'Transferable'
+      ,'N' as 'TransferOutSide'
+      ,'' as 'AuthPerson'
+      ,'Y' as 'Active'
+      ,op_remarks  as 'Remarks'
+FROM  opreg  
+  union all
+SELECT  ia_ipno AS 'FileCode'
+      ,op_title + ' '+ op_fname +' ' + op_lname  AS 'FileNm'
+      ,'IPFT' as 'FileTypeCode'
+      ,(select genl_desc from generallist where  genl_code='IPFT' and genl_mode='FTYPE' ) AS 'FileTypNm'
+      ,'IPFC' as 'FileCatCode',
+      (select genl_desc from generallist where  genl_code='IPFC' and genl_mode='FCAT' ) AS 'FileCatNm'
+      ,'IPD' as 'FileLocCode',
+      (select fl_desc from filelocationmas where  fl_code='IPD') AS 'FileLocNm'       
+      ,'' as 'FileRack'
+      ,'Y' as 'Transferable'
+      ,'N' as 'TransferOutSide'
+      ,'' as 'AuthPerson'
+      ,'Y' as 'Active'
+      ,ia_remarks  as 'Remarks'
+FROM  ipadmit  left join opreg on(op_no=ia_opno) 
+  
+  
+
+GO
+
+ 
+CREATE TABLE [dbo].[filemovement](
+	[fme_id] [bigint] IDENTITY(1,1) NOT NULL,
+	[fme_dt] [datetime] NOT NULL,
+	[fme_fileptr] [nvarchar](20) NOT NULL,
+	[fme_frmlocptr] [nvarchar](10) NOT NULL,
+	[fme_tolocptr] [nvarchar](10) NOT NULL,
+	[fme_carrierptr] [nvarchar](10) NOT NULL,
+	[fme_remarks] [nvarchar](100) NULL,
+	[fme_user] [nvarchar](15) NOT NULL,
+	[fme_userid] [bigint] NOT NULL,
+	[fme_sysdt] [datetime] NOT NULL,
+ CONSTRAINT [PK_filemovement] PRIMARY KEY CLUSTERED 
+(
+	[fme_id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
+CREATE TABLE [dbo].[filemas](
+	[fm_code] [nvarchar](20) NOT NULL,
+	[fm_desc] [nvarchar](100) NOT NULL,
+	[fm_categoryptr] [nvarchar](10) NULL,
+	[fm_locationptr] [nvarchar](10) NULL,
+	[fm_typeptr] [nvarchar](10) NULL,
+	[fm_filerack] [nvarchar](100) NULL,
+	[fm_transferable] [nvarchar](1) NULL,
+	[fm_transfertooutside] [nvarchar](1) NULL,
+	[fm_authdperson] [nvarchar](100) NULL,
+	[fm_active] [nvarchar](1) NULL,
+	[fm_remarks] [nvarchar](250) NULL,
+ CONSTRAINT [PK_filemas] PRIMARY KEY CLUSTERED 
+(
+	[fm_code] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+CREATE TABLE [dbo].[filelocationmas](
+	[fl_code] [nvarchar](10) NOT NULL,
+	[fl_desc] [nvarchar](100) NOT NULL,
+	[fl_inhouse] [nvarchar](1) NULL,
+	[fl_remarks] [nvarchar](250) NULL,
+	[fl_active] [nvarchar](1) NOT NULL,
+ CONSTRAINT [PK_filelocationmas] PRIMARY KEY CLUSTERED 
+(
+	[fl_code] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ 
+CREATE TABLE [dbo].[filecarriermas](
+	[fc_code] [nvarchar](10) NOT NULL,
+	[fc_name] [nvarchar](100) NULL,
+	[fc_remarks] [nvarchar](250) NULL,
+	[fc_active] [nvarchar](1) NULL,
+ CONSTRAINT [PK_filecarriermas] PRIMARY KEY CLUSTERED 
+(
+	[fc_code] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+

@@ -1,0 +1,617 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{40A1008B-797A-49AE-881C-A5C936D4ABB3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CsHms</RootNamespace>
+    <AssemblyName>SmartBiz</AssemblyName>
+    <ApplicationIcon>Resources\PrjIcon1.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>89EB47CB52C90C2954159FEE308CB237A7AEF967</ManifestCertificateThumbprint>
+    <ManifestKeyFile>SmartBiz_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>CsHms.Program</StartupObject>
+    <TargetZone>LocalIntranet</TargetZone>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishUrl>D:\Documents and Settings\Anoop\Desktop\Saudhi\Deploy_On_03_10_2008\Setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Publish\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CsAccsUtility, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CshmsBasic\CsAccsUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="CsGrid, Version=1.0.4754.19416, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Documents and Settings\cigolsoft.NODE2\Desktop\CaseHistory\CsGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlDesigner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Documents and Settings\cigolsoft.NODE2\Desktop\HtmlDesigner.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="RichTextBox_Test, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>H:\Documents and Settings\cigolsoft.NODE2\Desktop\CaseHistory\RichTextBox_Test.exe</HintPath>
+    </Reference>
+    <Reference Include="ServerSync, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UserControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\Documents and Settings\cigolsoft.NODE2\Desktop\cradle 1000\jjivf new\CsHms\UserControls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Akshay\ChangePackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\ChangePackage.Designer.cs">
+      <DependentUpon>ChangePackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\ChangeUserName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\ChangeUserName.Designer.cs">
+      <DependentUpon>ChangeUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\Class\BuildDatasetCls.cs" />
+    <Compile Include="Akshay\Class\ConvertJsonStringToDataTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Akshay\Class\CouponCreaterCls.cs" />
+    <Compile Include="Akshay\Class\ItemCls.cs" />
+    <Compile Include="Akshay\Class\JsonConvertCls.cs" />
+    <Compile Include="Akshay\Class\TaxCls.cs" />
+    <Compile Include="Akshay\Class\VoucherCls.cs" />
+    <Compile Include="Akshay\Class\VoucherdCls.cs" />
+    <Compile Include="Akshay\ConfigSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\ConfigSettings.Designer.cs">
+      <DependentUpon>ConfigSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\CoreScripts.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Akshay\CouponCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\CouponCreator.Designer.cs">
+      <DependentUpon>CouponCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\DataInitialize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\DataInitialize.Designer.cs">
+      <DependentUpon>DataInitialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\DDCList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\DDCList.Designer.cs">
+      <DependentUpon>DDCList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\FirmSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\FirmSelection.Designer.cs">
+      <DependentUpon>FirmSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\Firm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\Firm_Login.Designer.cs">
+      <DependentUpon>Firm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\IPBillCancel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\IPBillCancel.designer.cs">
+      <DependentUpon>IPBillCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\JSONMaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\JSONMaker.designer.cs">
+      <DependentUpon>JSONMaker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\LateCouponApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\LateCouponApply.Designer.cs">
+      <DependentUpon>LateCouponApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\OpBillModalityMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\OpBillModalityMap.Designer.cs">
+      <DependentUpon>OpBillModalityMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\OPLateDiscEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\OPLateDiscEntry.Designer.cs">
+      <DependentUpon>OPLateDiscEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\OpMerge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\OpMerge.Designer.cs">
+      <DependentUpon>OpMerge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\QMSMasterCreater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\QMSMasterCreater.designer.cs">
+      <DependentUpon>QMSMasterCreater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\RCMCoreSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\RCMCoreSettings.designer.cs">
+      <DependentUpon>RCMCoreSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\Remittance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\Remittance.Designer.cs">
+      <DependentUpon>Remittance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\SCRFileLinksMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\SCRFileLinksMap.Designer.cs">
+      <DependentUpon>SCRFileLinksMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\TableCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\TableCreator.Designer.cs">
+      <DependentUpon>TableCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\VoucherDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\VoucherDetails.Designer.cs">
+      <DependentUpon>VoucherDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\XMLVisualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\XMLVisualizer.Designer.cs">
+      <DependentUpon>XMLVisualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\AuditLog.cs" />
+    <Compile Include="Common\CommFuncs.cs" />
+    <Compile Include="Common\CommMaster.cs" />
+    <Compile Include="Common\ComRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DbConnSql_Log.cs" />
+    <Compile Include="Common\Global.cs" />
+    <Compile Include="Common\GridDesgnr.cs" />
+    <Compile Include="Common\DbConMySql.cs" />
+    <Compile Include="Common\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UsrRights.cs" />
+    <Compile Include="Common\Waitfrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\Waitfrm.designer.cs">
+      <DependentUpon>Waitfrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Emr\ClsEmrSubTemplate.cs" />
+    <Compile Include="Emr\ClsEmrTemplate.cs" />
+    <Compile Include="FileKeeper\Class\FileCarrierMasCls.cs" />
+    <Compile Include="FileKeeper\Class\FileInOutEntryCls.cs" />
+    <Compile Include="FileKeeper\Class\FileLocationMasCls.cs" />
+    <Compile Include="FileKeeper\Class\FileMasCls.cs" />
+    <Compile Include="FileKeeper\Master\FileCarrier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileKeeper\Master\FileCarrier.Designer.cs">
+      <DependentUpon>FileCarrier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileKeeper\Master\FileLocaitonMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileKeeper\Master\FileLocaitonMaster.Designer.cs">
+      <DependentUpon>FileLocaitonMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileKeeper\Master\FileMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileKeeper\Master\FileMaster.Designer.cs">
+      <DependentUpon>FileMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileKeeper\Transaction\FileInOutEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileKeeper\Transaction\FileInOutEntry.Designer.cs">
+      <DependentUpon>FileInOutEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\MasterSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Common\MasterSelection.Designer.cs">
+      <DependentUpon>MasterSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dat\dbClasses\DbConnAcc.cs" />
+    <Compile Include="dat\dbClasses\DbConnSql.cs" />
+    <Compile Include="dat\dbClasses\dbManager.cs" />
+    <Compile Include="Akshay\Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\Search.Designer.cs">
+      <DependentUpon>Search.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Security\Crypt.cs" />
+    <Compile Include="Web References\SmartDataSync\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="_Masters\Class\FinTrack_MemberCls.cs" />
+    <Compile Include="_Masters\Class\gtgrouptreatlistCls.cs" />
+    <Compile Include="_Masters\Class\ListidprooftypeCls.cs" />
+    <Compile Include="_Masters\Class\ShareHolderCls.cs" />
+    <Compile Include="_Masters\Class\ShareHolderFamilyCls.cs" />
+    <Compile Include="MDIMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIMain.Designer.cs">
+      <DependentUpon>MDIMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Common\ComRes.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ComRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Search.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Search.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Waitfrm.resx">
+      <DependentUpon>Waitfrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Res.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MDIMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Security\UsrRights.cs" />
+    <Compile Include="_Transactions\Class\CreditBillCollectionClass.cs" />
+    <Compile Include="_Transactions\Class\stockadjustmentclass.cs" />
+    <Compile Include="_Transactions\Class\stocktransferclass.cs" />
+    <Compile Include="_Transactions\Class\repackproductclass.cs" />
+    <Compile Include="_Transactions\Class\ItemTrn.cs" />
+    <Compile Include="_Transactions\Class\TableHdr.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Resources\PrjIcon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\CsGrid.dll" />
+    <Content Include="dat\Init_AutoNum.txt" />
+    <Content Include="dat\SmartBiz_db.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Akshay\Error\Error.text" />
+    <EmbeddedResource Include="Akshay\ChangePackage.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ChangePackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\ChangeUserName.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ChangeUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\ConfigSettings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ConfigSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\CouponCreator.resx">
+      <DependentUpon>CouponCreator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\DataInitialize.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DataInitialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\DDCList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DDCList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\FirmSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FirmSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\Firm_Login.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Firm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\IPBillCancel.resx">
+      <DependentUpon>IPBillCancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\JSONMaker.resx">
+      <DependentUpon>JSONMaker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\LateCouponApply.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LateCouponApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\OpBillModalityMap.resx">
+      <DependentUpon>OpBillModalityMap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\OPLateDiscEntry.resx">
+      <DependentUpon>OPLateDiscEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\OpMerge.resx">
+      <DependentUpon>OpMerge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\QMSMasterCreater.resx">
+      <DependentUpon>QMSMasterCreater.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\RCMCoreSettings.resx">
+      <DependentUpon>RCMCoreSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\Remittance.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Remittance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\SCRFileLinksMap.resx">
+      <DependentUpon>SCRFileLinksMap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\TableCreator.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TableCreator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\VoucherDetails.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VoucherDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\XMLVisualizer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>XMLVisualizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Login.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileKeeper\Master\FileCarrier.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileCarrier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileKeeper\Master\FileLocaitonMaster.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileLocaitonMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileKeeper\Master\FileMaster.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileKeeper\Transaction\FileInOutEntry.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileInOutEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\MasterSelection.resx">
+      <DependentUpon>MasterSelection.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\Search.resx">
+      <DependentUpon>Search.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="FileKeeper\Class\Settings Data.txt" />
+    <Content Include="DLL\HtmlDesigner.dll" />
+    <Content Include="Images\3d-wallpaper-desktop-glass-fruits.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\circle_red.png" />
+    <None Include="Resources\circle_green.png" />
+    <None Include="Resources\DnArrow.png" />
+    <None Include="Resources\UpArrow.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\unnamed.jpg" />
+    <None Include="Resources\Newlife logo 2.jpg" />
+    <Content Include="DLL\RichTextBoxEx.Controls.dll" />
+    <Content Include="DLL\UserControls.dll" />
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="SmartBiz_TemporaryKey.pfx" />
+    <None Include="Web References\SmartDataSync\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\SmartDataSync\SmartDataSync.disco" />
+    <None Include="Resources\TRFFC10A1.ICO" />
+    <None Include="Resources\TRFFC10B1.ICO" />
+    <None Include="Resources\TRFFC10C1.ICO" />
+    <None Include="Web References\SmartDataSync\SmartDataSync.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:1863/SmartWeb/WebService/SmartDataSync.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SmartDataSync\</RelPath>
+      <UpdateFromURL>http://localhost:1863/SmartWeb/WebService/SmartDataSync.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>SmartBiz_SmartDataSync_SmartDataSync</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Data.Access.Components.2.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Data Access Components 2.8</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.ReportViewer.8.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2008 Report Viewer</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="CsComm">
+      <Guid>{F031412D-AF72-11D6-931D-0080AD05001F}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>if exist "$(TargetPath).locked" del "$(TargetPath).locked"
+if exist "$(TargetPath)" if not exist "$(TargetPath).locked" move "$(TargetPath)" "$(TargetPath).locked"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,18 @@
+Important : Take database backup before this operation
+(ACCESS)
+
+delete from prodpack;
+delete from dlycloselog;
+delete from itemtran;
+delete from purchasehdr;
+delete from saleshdr;
+delete from voucher;
+delete from worklog;
+
+alter table prodpack alter column pp_id counter(1,1);
+alter table dlycloselog alter column dly_id counter(1,1);
+alter table itemtran alter column itn_id counter(1,1);
+alter table purchasehdr alter column puh_id counter(1,1);
+alter table saleshdr alter column slh_id counter(1,1);
+alter table voucher alter column v_id counter(1,1);
+alter table worklog alter column wl_id counter(1,1);
