@@ -76,9 +76,9 @@ namespace CsHms.Akshay
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(125, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 22);
+            this.label1.Size = new System.Drawing.Size(78, 22);
             this.label1.TabIndex = 3;
-            this.label1.Text = "OpNo.";
+            this.label1.Text = "OpNo1.";
             // 
             // txtOpno
             // 
