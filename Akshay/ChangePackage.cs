@@ -136,7 +136,7 @@ namespace CsHms.Akshay
                     queries.Append(strSql);
                     strSql = @"update opbill set opb_gender='Male' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
                     queries.Append(strSql);
-                    strSql = @"update opbilld set opbd_itemptr='16',opbd_itemdesc='Nura Men Health Screening' where opbd_itemptr='16' and opbd_hdrid='"+txtOpno.Tag+"'";
+                    strSql = @"update opbilld set opbd_itemptr='16',opbd_itemdesc='Nura Men Health Screening' where opbd_itemptr='17' and opbd_hdrid='"+txtOpno.Tag+"'";
                     queries.Append(strSql);
                 }
                 else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "F" && mCommFunc.ConvertToString(cbxGender.Tag) != mCommFunc.ConvertToString(cbxGender.SelectedValue))
@@ -145,7 +145,7 @@ namespace CsHms.Akshay
                     queries.Append(strSql);
                     strSql = @"update opbill set opb_gender='Female' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
                     queries.Append(strSql);
-                    strSql = @"update opbilld set opbd_itemptr='17',opbd_itemdesc='Nura Women Health Screening' where opbd_itemptr='17' and opbd_hdrid='"+txtOpno.Tag+"'";
+                    strSql = @"update opbilld set opbd_itemptr='17',opbd_itemdesc='Nura Women Health Screening' where opbd_itemptr='16' and opbd_hdrid='"+txtOpno.Tag+"'";
                     queries.Append(strSql);
                 }
                 else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "F")
@@ -154,7 +154,7 @@ namespace CsHms.Akshay
                     queries.Append(strSql);
                     strSql = @"update opbill set opb_gender='Female' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
                     queries.Append(strSql);
-                    strSql = @"update opbilld set opbd_itemptr='17',opbd_itemdesc='Nura Women Health Screening' where opbd_itemptr='17' and opbd_hdrid='" + txtOpno.Tag + "'";
+                    strSql = @"update opbilld set opbd_itemptr='17',opbd_itemdesc='Nura Women Health Screening' where opbd_itemptr='16' and opbd_hdrid='" + txtOpno.Tag + "'";
                     queries.Append(strSql);
                 }
                 else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "M")
@@ -163,7 +163,7 @@ namespace CsHms.Akshay
                     queries.Append(strSql);
                     strSql = @"update opbill set opb_gender='Male' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
                     queries.Append(strSql);
-                    strSql = @"update opbilld set opbd_itemptr='16',opbd_itemdesc='Nura Men Health Screening' where opbd_itemptr='16' and opbd_hdrid='" + txtOpno.Tag + "'";
+                    strSql = @"update opbilld set opbd_itemptr='16',opbd_itemdesc='Nura Men Health Screening' where opbd_itemptr='17' and opbd_hdrid='" + txtOpno.Tag + "'";
                     queries.Append(strSql);
                 }
                

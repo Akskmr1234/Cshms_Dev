@@ -45,9 +45,9 @@ D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\CsGrid.dll
 D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\HtmlDesigner.dll
 D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\UserControls.dll
 D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\Interop.CsComm.dll
+A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.exe.config
 A:\soxo\New Cshms\Cshms_Dev\Publish\dat\SmartBiz_db.mdb
 A:\soxo\New Cshms\Cshms_Dev\Publish\Images\3d-wallpaper-desktop-glass-fruits.jpg
-A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.exe.config
 A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.exe
 A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.pdb
 A:\soxo\New Cshms\Cshms_Dev\Publish\CsGrid.dll
