@@ -130,14 +130,48 @@ namespace CsHms.Akshay
                 string strSql = "";
                 string strCurrentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 StringBuilder queries = new StringBuilder();
-                strSql = @"update doctorappointment set da_packagetypevalue='" + cbxPackage.SelectedValue + "',da_gender='M' where da_billid='" + txtOpno.Tag + "'";
-                queries.Append(strSql);
-                strSql = @"delete opbilld where opbd_itemptr in ('COLPO001','XRBBS001') and  opbd_hdrid='"+mCommFunc.ConvertToString(txtOpno.Tag)+"'";
-                queries.Append(strSql);                
-                strSql = @"delete modalitypatientstatustran where mpst_itemptr  in ('COLPO001','XRBBS001') and mpst_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
-                queries.Append(strSql);
-                strSql = @"update opbill set opb_gender='Male' where opb_id='"+mCommFunc.ConvertToString(txtOpno.Tag)+"'";
-                queries.Append(strSql);
+                if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "M" && mCommFunc.ConvertToString(cbxGender.Tag) != mCommFunc.ConvertToString(cbxGender.SelectedValue))
+                {
+                    strSql = @"update doctorappointment set da_packagetypevalue='" + cbxPackage.SelectedValue + "',da_gender='M' where da_billid='" + txtOpno.Tag + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbill set opb_gender='Male' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbilld set opbd_itemptr='16',opbd_itemdesc='Nura Men Health Screening' where opbd_itemptr='17' and opbd_hdrid='"+txtOpno.Tag+"'";
+                    queries.Append(strSql);
+                }
+                else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "F" && mCommFunc.ConvertToString(cbxGender.Tag) != mCommFunc.ConvertToString(cbxGender.SelectedValue))
+                {
+                    strSql = @"update doctorappointment set da_packagetypevalue='" + cbxPackage.SelectedValue + "',da_gender='F' where da_billid='" + txtOpno.Tag + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbill set opb_gender='Female' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbilld set opbd_itemptr='17',opbd_itemdesc='Nura Women Health Screening' where opbd_itemptr='17' and opbd_hdrid='"+txtOpno.Tag+"'";
+                    queries.Append(strSql);
+                }
+                else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "F")
+                {
+                    strSql = @"update doctorappointment set da_packagetypevalue='" + cbxPackage.SelectedValue + "',da_gender='F' where da_billid='" + txtOpno.Tag + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbill set opb_gender='Female' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbilld set opbd_itemptr='17',opbd_itemdesc='Nura Women Health Screening' where opbd_itemptr='17' and opbd_hdrid='" + txtOpno.Tag + "'";
+                    queries.Append(strSql);
+                }
+                else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "M")
+                {
+                    strSql = @"update doctorappointment set da_packagetypevalue='" + cbxPackage.SelectedValue + "',da_gender='M' where da_billid='" + txtOpno.Tag + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbill set opb_gender='Male' where opb_id='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                    queries.Append(strSql);
+                    strSql = @"update opbilld set opbd_itemptr='16',opbd_itemdesc='Nura Men Health Screening' where opbd_itemptr='17' and opbd_hdrid='" + txtOpno.Tag + "'";
+                    queries.Append(strSql);
+                }
+               
+                //strSql = @"delete opbilld where opbd_itemptr in ('COLPO001','XRBBS001') and  opbd_hdrid='"+mCommFunc.ConvertToString(txtOpno.Tag)+"'";
+                //queries.Append(strSql);                
+                //strSql = @"delete modalitypatientstatustran where mpst_itemptr  in ('COLPO001','XRBBS001') and mpst_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                //queries.Append(strSql);
+             
                 strSql = @"SELECT opbd_itemptr AS Items FROM opbilld WHERE opbd_hdrid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
             DataTable dtBillItems = mGlobal.LocalDBCon.ExecuteQuery(strSql);
 
@@ -177,7 +211,7 @@ namespace CsHms.Akshay
                 {
                     if (!PckItemsLIst.Contains(ItemsList[i]))
                     {
-                        strSql = @"delete from opbilld where opbd_itemptr='" + mCommFunc.ConvertToString(ItemsList[i]) + "' and opbd_packagemode!='PCK' and opbd_hdrid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                        strSql = @"delete from opbilld where opbd_itemptr='" + mCommFunc.ConvertToString(ItemsList[i]) + "' and (opbd_packagemode<>'PCK' or opbd_packagemode is null) and opbd_hdrid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
                         mGlobal.LocalDBCon.ExecuteQuery(strSql);
                     }
                 }
