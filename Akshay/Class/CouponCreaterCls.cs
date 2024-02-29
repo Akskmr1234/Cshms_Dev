@@ -274,7 +274,7 @@ namespace CsHms.Akshay.Class
      + mclsCFunc.ConvertToString(mstrItemtype) + "', '"
      + mclsCFunc.ConvertToString(mstrValuetype) + "', '"
      + mclsCFunc.ConvertToString(mdecValue) + "', '"
-     + mclsCFunc.ConvertToString(mintCouponnos) + "', '', '', '"
+     + mclsCFunc.ConvertToString(mintCouponnos) + "','', '', '"
      + mclsCFunc.ConvertToString(mintCouponsnoofdigits) + "','1', '"
      + mstrActive + "', '"
      + mclsCFunc.ConvertToString(mstrRemarks) + "', '"

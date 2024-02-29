@@ -103,14 +103,14 @@ namespace CsHms.Akshay
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(mCommFunc.ConvertToString(cbxGender.SelectedValue)=="M" && mCommFunc.ConvertToString(cbxGender.Tag)!=mCommFunc.ConvertToString(cbxGender.SelectedValue))
-            { FemaletoMale(); }
-            else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "F" && mCommFunc.ConvertToString(cbxGender.Tag) != mCommFunc.ConvertToString(cbxGender.SelectedValue))
-            { MaletoFemale(); }
-            else
-            { }
+            //if(mCommFunc.ConvertToString(cbxGender.SelectedValue)=="M" && mCommFunc.ConvertToString(cbxGender.Tag)!=mCommFunc.ConvertToString(cbxGender.SelectedValue))
+            //{ FemaletoMale(); }
+            //else if (mCommFunc.ConvertToString(cbxGender.SelectedValue) == "F" && mCommFunc.ConvertToString(cbxGender.Tag) != mCommFunc.ConvertToString(cbxGender.SelectedValue))
+            //{ MaletoFemale(); }
+            //else
+            //{ }
 
-           
+            FemaletoMale(); 
             
         }
 
@@ -143,7 +143,8 @@ namespace CsHms.Akshay
 
             // Initialize a list to hold items not found in dtPckItems
             List<string> nonMatchingItems = new List<string>();
-
+            List<string> ItemsList = new List<string>();
+            List<string> PckItemsLIst = new List<string>();
             if (dtBillItems != null && dtBillItems.Rows.Count > 0)
             {
                 // Fetch the package items only once
@@ -151,7 +152,7 @@ namespace CsHms.Akshay
                 DataTable dtPckItems = mGlobal.LocalDBCon.ExecuteQuery(strSql);
 
                 // Since HashSet is not available, use Dictionary or List for compatibility
-                List<string> ItemsList = new List<string>();
+              
                 foreach (DataRow row in dtBillItems.Rows)
                 {
                     string item = mCommFunc.ConvertToString(row["Items"]);
@@ -165,10 +166,19 @@ namespace CsHms.Akshay
                 foreach (DataRow nonbillItemRow in dtPckItems.Rows)
                 {
                     string billItemPtr = mCommFunc.ConvertToString(nonbillItemRow["Items"]);
+                    PckItemsLIst.Add(billItemPtr);
                     if (!ItemsList.Contains(billItemPtr))
                     {
                         // This item is not found in dtPckItems, add it to the list
                         nonMatchingItems.Add(billItemPtr);
+                    }
+                }
+                for (int i = 0; i < ItemsList.Count; i++)
+                {
+                    if (!PckItemsLIst.Contains(ItemsList[i]))
+                    {
+                        strSql = @"delete from opbilld where opbd_itemptr='" + mCommFunc.ConvertToString(ItemsList[i]) + "' and opbd_packagemode!='PCK' and opbd_hdrid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                        mGlobal.LocalDBCon.ExecuteQuery(strSql);
                     }
                 }
                 for (int i = 0; i < nonMatchingItems.Count; i++)
@@ -182,8 +192,33 @@ namespace CsHms.Akshay
                         mGlobal.LocalDBCon.ExecuteQuery(strSql);
                     }
                 }
+            
             }
-            strSql = @"SELECT * FROM opbilld RIGHT JOIN item ON opbilld.opbd_itemptr = item.itm_code WHERE itm_groupptr NOT IN ('LAB', 'GEN')  AND itm_package NOT IN ('OP','IP')  AND itm_active = 'Y'  AND opbd_hdrid = '" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
+                List<string> ModalityItemLIst=new List<string>();
+                strSql=@" select mpst_itemptr from modalitypatientstatustran where mpst_refid='"+mCommFunc.ConvertToString(mCommFunc.ConvertToString(txtOpno.Tag))+"'";
+                DataTable dtModalityitems = mGlobal.LocalDBCon.ExecuteQuery(strSql);
+                if (dtModalityitems != null && dtModalityitems.Rows.Count > 0)
+                {
+                    foreach (DataRow modalityitems in dtModalityitems.Rows)
+                    {
+                        string modalityitem = mCommFunc.ConvertToString(modalityitems["mpst_itemptr"]);
+                        if (!ModalityItemLIst.Contains(modalityitem))
+                        {
+                            ModalityItemLIst.Add(modalityitem);
+                        }
+                    }
+ 
+                }
+                for (int i = 0; i < ModalityItemLIst.Count; i++)
+                {
+                    if (!PckItemsLIst.Contains(ModalityItemLIst[i]))
+                    {
+                        strSql = @"delete from modalitypatientstatustran where mpst_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and mpst_itemptr='" + mCommFunc.ConvertToString(ModalityItemLIst[i]) + "'";
+                        mGlobal.LocalDBCon.ExecuteQuery(strSql);
+                    }
+                }
+
+                    strSql = @"SELECT * FROM opbilld RIGHT JOIN item ON opbilld.opbd_itemptr = item.itm_code WHERE itm_groupptr NOT IN ('LAB', 'GEN')  AND itm_package NOT IN ('OP','IP')  AND itm_active = 'Y'  AND opbd_hdrid = '" + mCommFunc.ConvertToString(txtOpno.Tag) + "'";
             DataTable dtBilldItems = mGlobal.LocalDBCon.ExecuteQuery(strSql);
             if (dtBilldItems != null && dtBilldItems.Rows.Count > 0)
             {
