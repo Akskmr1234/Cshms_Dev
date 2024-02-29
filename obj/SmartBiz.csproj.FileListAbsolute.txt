@@ -74,6 +74,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.Firm_Login.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.IP.IPBillCancel.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.JSONMaker.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.LateCouponApply.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OP_DoctorappointmentMaping.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OpBillModalityMap.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OPLateDiscEntry.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OpMerge.resources

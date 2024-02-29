@@ -183,6 +183,12 @@
     <Compile Include="Akshay\LateCouponApply.Designer.cs">
       <DependentUpon>LateCouponApply.cs</DependentUpon>
     </Compile>
+    <Compile Include="Akshay\OP-DoctorappointmentMaping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\OP-DoctorappointmentMaping.Designer.cs">
+      <DependentUpon>OP-DoctorappointmentMaping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Akshay\OpBillModalityMap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +458,10 @@
     <EmbeddedResource Include="Akshay\LateCouponApply.resx">
       <SubType>Designer</SubType>
       <DependentUpon>LateCouponApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\OP-DoctorappointmentMaping.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OP-DoctorappointmentMaping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Akshay\OpBillModalityMap.resx">
       <DependentUpon>OpBillModalityMap.cs</DependentUpon>
