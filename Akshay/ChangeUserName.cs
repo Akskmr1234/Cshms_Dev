@@ -60,8 +60,7 @@ namespace CsHms.Akshay
                 else
                 {
                     strQueries.Append("update prereg set prereg_email='" + mCommFunc.ConvertToString(txtUsername.Text) + "' where prereg_opno='" + mCommFunc.ConvertToString(txtOpno.Text) + "'");
-                }             
-                
+                }
                 strQueries.Append("update opreg set op_email='" + mCommFunc.ConvertToString(txtUsername.Text) + "' where op_no='" + mCommFunc.ConvertToString(txtOpno.Text) + "'");
                 strQueries.Append("update opbill set opb_email='" + mCommFunc.ConvertToString(txtUsername.Text) + "' where opb_opno='" + mCommFunc.ConvertToString(txtOpno.Text) + "'");
                 strQueries.Append("update doctorappointment set da_email='" + mCommFunc.ConvertToString(txtUsername.Text) + "' where da_newopno='" + mCommFunc.ConvertToString(txtOpno.Text) + "'");
@@ -85,7 +84,7 @@ namespace CsHms.Akshay
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();            
+            this.Close();
         }
 
     }

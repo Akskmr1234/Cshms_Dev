@@ -121,6 +121,7 @@ namespace CsHms.Akshay
                     string dataType = dtTableDetails.Rows[i]["DATA_TYPE"].ToString();
                     string charMaxLen = dtTableDetails.Rows[i]["CHARACTER_MAXIMUM_LENGTH"].ToString();
                     string columnDefault = dtTableDetails.Rows[i]["COLUMN_DEFAULT"].ToString();
+                    string isNullable = dtTableDetails.Rows[i]["IS_NULLABLE"].ToString();
 
                      strQueryBuilder = columnName + " " + dataType+" ";
 
@@ -135,19 +136,19 @@ namespace CsHms.Akshay
                     {
                         strQueryBuilder += " default " + columnDefault+",";
                     }
-                    else
+                    else if (isNullable=="YES")                    
                         strQueryBuilder +=  "null"+",";
+                    else
+                        strQueryBuilder+="not null"+",";
 
                     StrQueries.Append(strQueryBuilder);
  
                 }
                 strQueryBuilder = ")";
                 StrQueries.Append(strQueryBuilder);
-                int res = mGlobal.LocalDBCon.ExecuteNonQuery(StrQueries.ToString());
-                if (res > 0)
-                { MessageBox.Show("Table Created"); }
-                else
-                    MessageBox.Show("Error Occured");
+                mGlobal.LocalDBCon.ExecuteQuery(StrQueries.ToString());
+                MessageBox.Show("Table Created"); 
+               
 
             }
             catch (Exception ex)

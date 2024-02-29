@@ -96,10 +96,10 @@ namespace CsHms.Akshay
                 if (dtCouponDetails != null && dtCouponDetails.Rows.Count > 0)
                 {
                     pnlCouponDetail.Visible = true;
-                    lblMode.Text = lblMode.Text + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_mode"]);
-                    lblRemark.Text = lblRemark.Text + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_remarks"]);
-                    lblFromDate.Text = lblFromDate.Text + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_fromdttm"]);
-                    lblToDate.Text = lblToDate.Text + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_todttm"]);
+                    lblMode.Text = "Mode :" + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_mode"]);
+                    lblRemark.Text = "Remark :" + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_remarks"]);
+                    lblFromDate.Text = "From Date :" + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_fromdttm"]);
+                    lblToDate.Text = "To Date :" + mCommFunc.ConvertToString(dtCouponDetails.Rows[0]["cmgdcm_todttm"]);
                 }
                 else
                 {

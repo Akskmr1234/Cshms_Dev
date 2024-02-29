@@ -38,8 +38,9 @@ namespace CsHms.Akshay
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxPackage = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dgvPackages = new System.Windows.Forms.DataGridView();
             this.pnlPackage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,7 +63,7 @@ namespace CsHms.Akshay
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Location = new System.Drawing.Point(622, 157);
+            this.btnExit.Location = new System.Drawing.Point(622, 592);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(88, 32);
             this.btnExit.TabIndex = 4;
@@ -73,7 +74,7 @@ namespace CsHms.Akshay
             // btnClear
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(518, 157);
+            this.btnClear.Location = new System.Drawing.Point(518, 592);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(88, 32);
             this.btnClear.TabIndex = 5;
@@ -84,7 +85,7 @@ namespace CsHms.Akshay
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(413, 157);
+            this.btnSave.Location = new System.Drawing.Point(413, 592);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(88, 32);
             this.btnSave.TabIndex = 6;
@@ -144,23 +145,21 @@ namespace CsHms.Akshay
             this.cbxPackage.Size = new System.Drawing.Size(152, 28);
             this.cbxPackage.TabIndex = 4;
             // 
-            // button1
+            // dgvPackages
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(308, 157);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 32);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dgvPackages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPackages.Location = new System.Drawing.Point(0, 131);
+            this.dgvPackages.Name = "dgvPackages";
+            this.dgvPackages.RowTemplate.Height = 28;
+            this.dgvPackages.Size = new System.Drawing.Size(735, 443);
+            this.dgvPackages.TabIndex = 9;
             // 
             // ChangePackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 207);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(735, 642);
+            this.Controls.Add(this.dgvPackages);
             this.Controls.Add(this.pnlPackage);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
@@ -172,6 +171,7 @@ namespace CsHms.Akshay
             this.Text = "ChangePackage";
             this.pnlPackage.ResumeLayout(false);
             this.pnlPackage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPackages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,6 +189,6 @@ namespace CsHms.Akshay
         private System.Windows.Forms.ComboBox cbxPackage;
         private System.Windows.Forms.ComboBox cbxGender;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgvPackages;
     }
 }
