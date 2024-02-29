@@ -80,6 +80,8 @@ namespace CsHms.Akshay
             this.tbCoupons = new System.Windows.Forms.TabPage();
             this.dgvCoupons = new System.Windows.Forms.DataGridView();
             this.tbExtendvalidity = new System.Windows.Forms.TabPage();
+            this.txtExtRemarks = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -99,8 +101,6 @@ namespace CsHms.Akshay
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtExtRemarks = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.tbCouponCreator.SuspendLayout();
             this.tbCouponMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMasAvailCount)).BeginInit();
@@ -532,7 +532,7 @@ namespace CsHms.Akshay
             // txtMasPrefix
             // 
             this.txtMasPrefix.Location = new System.Drawing.Point(150, 398);
-            this.txtMasPrefix.MaxLength = 5;
+            this.txtMasPrefix.MaxLength = 7;
             this.txtMasPrefix.Name = "txtMasPrefix";
             this.txtMasPrefix.Size = new System.Drawing.Size(222, 26);
             this.txtMasPrefix.TabIndex = 14;
@@ -721,6 +721,25 @@ namespace CsHms.Akshay
             this.tbExtendvalidity.Text = "Extend Validity";
             this.tbExtendvalidity.UseVisualStyleBackColor = true;
             // 
+            // txtExtRemarks
+            // 
+            this.txtExtRemarks.Location = new System.Drawing.Point(148, 218);
+            this.txtExtRemarks.MaxLength = 100;
+            this.txtExtRemarks.Multiline = true;
+            this.txtExtRemarks.Name = "txtExtRemarks";
+            this.txtExtRemarks.ReadOnly = true;
+            this.txtExtRemarks.Size = new System.Drawing.Size(575, 84);
+            this.txtExtRemarks.TabIndex = 60;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(24, 222);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(73, 20);
+            this.label36.TabIndex = 61;
+            this.label36.Text = "Remarks";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -803,7 +822,6 @@ namespace CsHms.Akshay
             this.dtExtTodt.Size = new System.Drawing.Size(216, 26);
             this.dtExtTodt.TabIndex = 51;
             this.dtExtTodt.ValueChanged += new System.EventHandler(this.dtExtTodt_ValueChanged);
-            
             // 
             // label34
             // 
@@ -822,7 +840,6 @@ namespace CsHms.Akshay
             this.dtExtFrmdt.TabIndex = 49;
             this.dtExtFrmdt.Value = new System.DateTime(2024, 2, 10, 0, 0, 0, 0);
             this.dtExtFrmdt.ValueChanged += new System.EventHandler(this.dtExtFrmdt_ValueChanged);
-            
             // 
             // label24
             // 
@@ -901,26 +918,7 @@ namespace CsHms.Akshay
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtExtRemarks
-            // 
-            this.txtExtRemarks.Location = new System.Drawing.Point(148, 218);
-            this.txtExtRemarks.MaxLength = 100;
-            this.txtExtRemarks.Multiline = true;
-            this.txtExtRemarks.Name = "txtExtRemarks";
-            this.txtExtRemarks.ReadOnly = true;
-            this.txtExtRemarks.Size = new System.Drawing.Size(575, 84);
-            this.txtExtRemarks.TabIndex = 60;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(24, 222);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(73, 20);
-            this.label36.TabIndex = 61;
-            this.label36.Text = "Remarks";
-            // 
-            // CouponCreater
+            // CouponCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -929,7 +927,7 @@ namespace CsHms.Akshay
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.tbCouponCreator);
-            this.Name = "CouponCreater";
+            this.Name = "CouponCreator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CouponCreator";
             this.tbCouponCreator.ResumeLayout(false);
