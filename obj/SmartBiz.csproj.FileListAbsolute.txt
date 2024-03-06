@@ -45,9 +45,9 @@ D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\CsGrid.dll
 D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\HtmlDesigner.dll
 D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\UserControls.dll
 D:\Soxo\Akshy's Work\Cshms\Cshms\Publish\Interop.CsComm.dll
-A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.exe.config
 A:\soxo\New Cshms\Cshms_Dev\Publish\dat\SmartBiz_db.mdb
 A:\soxo\New Cshms\Cshms_Dev\Publish\Images\3d-wallpaper-desktop-glass-fruits.jpg
+A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.exe.config
 A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.exe
 A:\soxo\New Cshms\Cshms_Dev\Publish\SmartBiz.pdb
 A:\soxo\New Cshms\Cshms_Dev\Publish\CsGrid.dll
@@ -66,6 +66,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Properties.Resources.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangePackage.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangeUserName.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ConfigSettings.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.CampgnMasterCreator.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.CouponCreator.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DataInitialize.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DDCList.resources
@@ -96,4 +97,3 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Search.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.csproj.GenerateResource.Cache
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.exe
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.pdb
-A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.CampgnMasterCreator.resources
