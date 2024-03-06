@@ -269,6 +269,22 @@ namespace CsHms
             frm.Show();
         }
 
+        private void btnOpDoctorappmap_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.OP_DoctorappointmentMaping();
+            frm.MdiParent = this;
+            frm.Icon = this.Icon;
+            frm.Show();
+        }
+
+        private void btnCampgnMasterCreator_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.CampgnMasterCreator();
+            frm.MdiParent = this;
+            frm.Icon = this.Icon;
+            frm.Show();
+        }
+
      
 
     }

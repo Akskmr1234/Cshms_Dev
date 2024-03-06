@@ -100,6 +100,8 @@ namespace CsHms
             this.btnCouponapply = new System.Windows.Forms.Button();
             this.btnTableCreator = new System.Windows.Forms.Button();
             this.btnChangeUsername = new System.Windows.Forms.Button();
+            this.btnOpDoctorappmap = new System.Windows.Forms.Button();
+            this.btnCampgnMasterCreator = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -689,12 +691,36 @@ namespace CsHms
             this.btnChangeUsername.UseVisualStyleBackColor = true;
             this.btnChangeUsername.Click += new System.EventHandler(this.btnChangeUsername_Click);
             // 
+            // btnOpDoctorappmap
+            // 
+            this.btnOpDoctorappmap.Location = new System.Drawing.Point(230, 323);
+            this.btnOpDoctorappmap.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpDoctorappmap.Name = "btnOpDoctorappmap";
+            this.btnOpDoctorappmap.Size = new System.Drawing.Size(168, 57);
+            this.btnOpDoctorappmap.TabIndex = 301;
+            this.btnOpDoctorappmap.Text = "OP - Doctor Appointment Map";
+            this.btnOpDoctorappmap.UseVisualStyleBackColor = true;
+            this.btnOpDoctorappmap.Click += new System.EventHandler(this.btnOpDoctorappmap_Click);
+            // 
+            // btnCampgnMasterCreator
+            // 
+            this.btnCampgnMasterCreator.Location = new System.Drawing.Point(230, 390);
+            this.btnCampgnMasterCreator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCampgnMasterCreator.Name = "btnCampgnMasterCreator";
+            this.btnCampgnMasterCreator.Size = new System.Drawing.Size(168, 60);
+            this.btnCampgnMasterCreator.TabIndex = 303;
+            this.btnCampgnMasterCreator.Text = "Campgn Master Creator";
+            this.btnCampgnMasterCreator.UseVisualStyleBackColor = true;
+            this.btnCampgnMasterCreator.Click += new System.EventHandler(this.btnCampgnMasterCreator_Click);
+            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1497, 880);
+            this.Controls.Add(this.btnCampgnMasterCreator);
+            this.Controls.Add(this.btnOpDoctorappmap);
             this.Controls.Add(this.btnChangeUsername);
             this.Controls.Add(this.btnTableCreator);
             this.Controls.Add(this.btnCouponapply);
@@ -808,6 +834,8 @@ namespace CsHms
         private System.Windows.Forms.Button btnCouponapply;
         private System.Windows.Forms.Button btnTableCreator;
         private System.Windows.Forms.Button btnChangeUsername;
+        private System.Windows.Forms.Button btnOpDoctorappmap;
+        private System.Windows.Forms.Button btnCampgnMasterCreator;
        
     }
 }

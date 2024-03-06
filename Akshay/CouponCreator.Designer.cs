@@ -532,7 +532,7 @@ namespace CsHms.Akshay
             // txtMasPrefix
             // 
             this.txtMasPrefix.Location = new System.Drawing.Point(150, 398);
-            this.txtMasPrefix.MaxLength = 7;
+            this.txtMasPrefix.MaxLength = 10;
             this.txtMasPrefix.Name = "txtMasPrefix";
             this.txtMasPrefix.Size = new System.Drawing.Size(222, 26);
             this.txtMasPrefix.TabIndex = 14;
