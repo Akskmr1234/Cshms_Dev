@@ -11,6 +11,7 @@ using System.Web.Script.Serialization;
 using System.Data.SqlClient;
 
 
+
 namespace CsHms.Akshay
 {
     public partial class CampgnMasterCreator : Form
@@ -88,6 +89,8 @@ namespace CsHms.Akshay
         {
             SubmitData();
         }
+
+      
         private const int BatchSize = 1000; // Set your desired batch size
 
         private void SubmitData()
@@ -102,14 +105,28 @@ namespace CsHms.Akshay
                 StringBuilder batchQuery = new StringBuilder();
                 if (cbxSheets.SelectedValue.ToString() == "Bengaluru$")
                 {
-                    string strConstring = "Data Source=INBOOK_X1; Initial Catalog=NuraMumbai_test; User ID=sa; Password=123456; Integrated Security=false;Connection Timeout=60000000;";
+                    string strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("Bengaluru");
                     SqlConnection Conn = null;
                     DbConnSql dbRemovecon = new DbConnSql(Conn);
                     DbConnSql dbConString = new DbConnSql(strConstring);
                 }
                 else if (cbxSheets.SelectedValue.ToString() == "Gurgaon$")
                 {
-                    string strConstring = "Data Source=INBOOK_X1; Initial Catalog=NuraMumbai_test_Log; User ID=sa; Password=123456; Integrated Security=false;Connection Timeout=60000000;";
+                    string strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("Gurgaon");
+                    SqlConnection Conn = null;
+                    DbConnSql dbRemovecon = new DbConnSql(Conn);
+                    DbConnSql dbConString = new DbConnSql(strConstring);
+                }
+                else if (cbxSheets.SelectedValue.ToString() == "Mumbai$")
+                {
+                    string strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("Mumbai");
+                    SqlConnection Conn = null;
+                    DbConnSql dbRemovecon = new DbConnSql(Conn);
+                    DbConnSql dbConString = new DbConnSql(strConstring);
+                }
+                else if (cbxSheets.SelectedValue.ToString() == "Hyderabad$")
+                {
+                    string strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("Hyderabad");
                     SqlConnection Conn = null;
                     DbConnSql dbRemovecon = new DbConnSql(Conn);
                     DbConnSql dbConString = new DbConnSql(strConstring);
@@ -129,7 +146,7 @@ namespace CsHms.Akshay
                     {
                          strMobile = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_mobile"]);
                          strEmail = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_email"]);
-                         strName = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_fname"]);
+                         strName = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_title"]) + mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_fname"])+" "+mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_lname"]);
                          strAddress = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_add1"]);
 
                     }
@@ -137,7 +154,14 @@ namespace CsHms.Akshay
                     string strLocation = mCommFunc.ConvertToString(dtDgvData.Rows[i]["location"]);
                     string filename = mCommFunc.ConvertToString(dtDgvData.Rows[i]["filename"]);
                     string strPersonalDet = "";
-                    string strotherDet = mCommFunc.ConvertToString(dtDgvData.Rows[i]["location"]);
+                    //string strotherDet = mCommFunc.ConvertToString(dtDgvData.Rows[i]["location"]);
+                    string strotherDet="";
+                    strSql="select prereg_id from prereg where prereg_opno='"+strRefno+"'";
+                    DataTable dtPreregid=mGlobal.LocalDBCon.ExecuteQuery(strSql);
+                    if(dtPreregid!=null && dtPreregid.Rows.Count>0)
+                    {
+                     strotherDet="{\"prereg_id\":\""+mCommFunc.ConvertToString(dtPreregid.Rows[0]["prereg_id"])+"\"}";
+                    }
                     int index = filename.LastIndexOf(".html");
                     if (index > 0)
                     {
@@ -149,15 +173,17 @@ namespace CsHms.Akshay
                     DateTime discontinuedDate;
                     SetProgressBar(i);
 
-                   
 
+                    int res=0;
                     strSql = @"INSERT INTO [dbo].[campgn_master_details] ([header_id],[reference_number],[mobile],[email],[other_personal_details],[other_details],[delivery_status],[delivery_id],[delivery_datetime],[name],[address],[mail_content]) values('','" + strRefno + "','"+strMobile+"','"+strEmail+"','" + strPersonalDet + "','" + strotherDet + "','','','','"+strName+"','"+strAddress+"','')";
                     // Append the current query to the batch query
-
-                    int res = mGlobal.LocalDBCon.ExecuteNonQuery(strSql);
+                    if (!CheckALreadyExist(strRefno))
+                    {
+                         res = mGlobal.LocalDBCon.ExecuteNonQuery(strSql);
+                    }
 
                     // If the batch size is reached or it's the last iteration, execute the batch
-                    if ((dtDgvData.Rows.Count - 1) == i && res > 0)
+                    if ((dtDgvData.Rows.Count - 1) == i )
                     {
                         MessageBox.Show("Success");
                     }
@@ -184,11 +210,11 @@ namespace CsHms.Akshay
         }
 
         
-        private bool CheckALreadyExist(string strpmcode)
+        private bool CheckALreadyExist(string strrefno)
         {
             try
             {
-                string strSql=@"select * from phm_product_temp where pm_cod='"+strpmcode+"'";
+                string strSql = @"select * from campgn_master_details where reference_number='" + strrefno + "'";
                 DataTable dtres = mGlobal.LocalDBCon.ExecuteQuery_OnTran(strSql);
                 if (dtres.Rows.Count>0)
                     return true;
