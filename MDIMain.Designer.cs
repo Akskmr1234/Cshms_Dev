@@ -102,6 +102,7 @@ namespace CsHms
             this.btnChangeUsername = new System.Windows.Forms.Button();
             this.btnOpDoctorappmap = new System.Windows.Forms.Button();
             this.btnCampgnMasterCreator = new System.Windows.Forms.Button();
+            this.btnModalityTechnicianEntry = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -713,12 +714,24 @@ namespace CsHms
             this.btnCampgnMasterCreator.UseVisualStyleBackColor = true;
             this.btnCampgnMasterCreator.Click += new System.EventHandler(this.btnCampgnMasterCreator_Click);
             // 
+            // btnModalityTechnicianEntry
+            // 
+            this.btnModalityTechnicianEntry.Location = new System.Drawing.Point(230, 460);
+            this.btnModalityTechnicianEntry.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnModalityTechnicianEntry.Name = "btnModalityTechnicianEntry";
+            this.btnModalityTechnicianEntry.Size = new System.Drawing.Size(168, 60);
+            this.btnModalityTechnicianEntry.TabIndex = 305;
+            this.btnModalityTechnicianEntry.Text = "Modality Technician Entry";
+            this.btnModalityTechnicianEntry.UseVisualStyleBackColor = true;
+            this.btnModalityTechnicianEntry.Click += new System.EventHandler(this.btnModalityTechnicianEntry_Click);
+            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1497, 880);
+            this.Controls.Add(this.btnModalityTechnicianEntry);
             this.Controls.Add(this.btnCampgnMasterCreator);
             this.Controls.Add(this.btnOpDoctorappmap);
             this.Controls.Add(this.btnChangeUsername);
@@ -836,6 +849,7 @@ namespace CsHms
         private System.Windows.Forms.Button btnChangeUsername;
         private System.Windows.Forms.Button btnOpDoctorappmap;
         private System.Windows.Forms.Button btnCampgnMasterCreator;
+        private System.Windows.Forms.Button btnModalityTechnicianEntry;
        
     }
 }

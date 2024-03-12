@@ -12984,3 +12984,73 @@ Invalid object name 'prereg'.
    at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
    at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 158
 **********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: SubmitData ON:11/03/2024 14:57:38
+The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
+   at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 140
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: SubmitData ON:11/03/2024 14:59:48
+String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 182
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: SubmitData ON:11/03/2024 15:06:00
+String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 182
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: SubmitData ON:11/03/2024 15:13:50
+String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 182
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: SubmitData ON:11/03/2024 15:18:44
+String or binary data would be truncated.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 182
+**********************************************************************

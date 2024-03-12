@@ -82,7 +82,7 @@ namespace CsHms.Akshay
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace CsHms.Akshay
 
       
         private const int BatchSize = 1000; // Set your desired batch size
-
+        
         private void SubmitData()
         {
             try
@@ -132,8 +132,7 @@ namespace CsHms.Akshay
                     DbConnSql dbConString = new DbConnSql(strConstring);
                 }
                 for (int i = 0; i < dtDgvData.Rows.Count; i++)
-                {
-                    
+                {                  
                     //string strhdrid = mCommFunc.ConvertToString(dtDgvData.Rows[i]["NURA_ID"]);
                     string strRefno = mCommFunc.ConvertToString(dtDgvData.Rows[i]["NURA_ID"]);
                     strSql = @"select * from opreg where op_no='" + strRefno + "'";
@@ -144,9 +143,14 @@ namespace CsHms.Akshay
                     string strAddress = "";
                     if (dtOpregdet != null && dtOpregdet.Rows.Count > 0)
                     {
+                        string strMobileNums = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_mobile"]);
+                        string[] mobileparts=strMobileNums.Split('/');
+                        if (mobileparts.Length > 0)
+                            strMobile = mobileparts[0];
+                        else                           
                          strMobile = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_mobile"]);
                          strEmail = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_email"]);
-                         strName = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_title"]) + mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_fname"])+" "+mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_lname"]);
+                         strName = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_title"])+" "+ mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_fname"])+" "+mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_lname"]);
                          strAddress = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_add1"]);
 
                     }
@@ -158,10 +162,6 @@ namespace CsHms.Akshay
                     string strotherDet="";
                     strSql="select prereg_id from prereg where prereg_opno='"+strRefno+"'";
                     DataTable dtPreregid=mGlobal.LocalDBCon.ExecuteQuery(strSql);
-                    if(dtPreregid!=null && dtPreregid.Rows.Count>0)
-                    {
-                     strotherDet="{\"prereg_id\":\""+mCommFunc.ConvertToString(dtPreregid.Rows[0]["prereg_id"])+"\"}";
-                    }
                     int index = filename.LastIndexOf(".html");
                     if (index > 0)
                     {
@@ -174,8 +174,16 @@ namespace CsHms.Akshay
                     SetProgressBar(i);
 
 
-                    int res=0;
-                    strSql = @"INSERT INTO [dbo].[campgn_master_details] ([header_id],[reference_number],[mobile],[email],[other_personal_details],[other_details],[delivery_status],[delivery_id],[delivery_datetime],[name],[address],[mail_content]) values('','" + strRefno + "','"+strMobile+"','"+strEmail+"','" + strPersonalDet + "','" + strotherDet + "','','','','"+strName+"','"+strAddress+"','')";
+                    int res = 0;
+                    if(dtPreregid!=null && dtPreregid.Rows.Count>0)
+                    {
+                     strotherDet="{\"prereg_id\":\""+mCommFunc.ConvertToString(dtPreregid.Rows[0]["prereg_id"])+"\"}";
+                     strSql = @"INSERT INTO [dbo].[campgn_master_details] ([header_id],[reference_number],[mobile],[email],[other_personal_details],[other_details],[delivery_status],[delivery_id],[delivery_datetime],[name],[address],[mail_content]) values('','" + strRefno + "','" + strMobile + "','" + strEmail + "','" + strPersonalDet + "','" + strotherDet + "','','','','" + strName + "','" + strAddress + "','')";
+                    }
+                    else
+                        strSql = @"INSERT INTO [dbo].[campgn_master_details] ([header_id],[reference_number],[mobile],[email],[other_personal_details],[other_details],[delivery_status],[delivery_id],[delivery_datetime],[name],[address],[mail_content]) values('','" + strRefno + "','" + strMobile + "','" + strEmail + "','" + strPersonalDet + "','','PENDING','','','" + strName + "','" + strAddress + "','')";
+                   
+                    
                     // Append the current query to the batch query
                     if (!CheckALreadyExist(strRefno))
                     {
@@ -187,22 +195,15 @@ namespace CsHms.Akshay
                     {
                         MessageBox.Show("Success");
                     }
-
-
-
-
                 }
-
-
                 //strSql = @"update phm_product_temp set pm_active= case when pm_discontinuedon<getdate() then 'N' else 'Y' end where pm_discontinuedon is not null";
-
-
-
+                
             }
             catch (Exception ex)
             {
                 writeErrorLog(ex, "SubmitData");
                 MessageBox.Show(ex.Message.ToString());
+                
                 //mGlobal.LocalDBCon.RollbackTrans();
             }
             finally
@@ -230,11 +231,7 @@ namespace CsHms.Akshay
         private void SetProgressBar(int intValue)
         {
             try
-            {
-                progressBar.Value = intValue;
-                
-               
-            }
+            {progressBar.Value = intValue;}
             catch (Exception ex)
             { MessageBox.Show(ex.Message.ToString()); }
         }

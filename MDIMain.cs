@@ -285,6 +285,14 @@ namespace CsHms
             frm.Show();
         }
 
+        private void btnModalityTechnicianEntry_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.ModalityTechnicianEntry();
+            frm.MdiParent = this;
+            frm.Icon = this.Icon;
+            frm.Show();
+        }
+
      
 
     }

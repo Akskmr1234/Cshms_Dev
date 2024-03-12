@@ -15,8 +15,7 @@ public DataTable getQueries(string Mode,string Type)
         {
             try
             {
-                SQL = @" select * from core_scripts where mode='" + Mode + "' and type='" + Type + "' and active='Y' order by serial_numbers ASC";
-                
+                SQL = @" select * from core_scripts where mode='" + Mode + "' and type='" + Type + "' and active='Y' order by serial_numbers ASC";                
                 DataTable dtData = mGlobal.LocalDBCon.ExecuteQuery(SQL);
                 if (mclsCFunc.ConvertToInt(dtData.Rows.Count) > 0)
                 return dtData;
