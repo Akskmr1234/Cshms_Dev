@@ -212,7 +212,7 @@ namespace CsHms.Akshay
             this.Controls.Add(this.label3);
             this.Name = "ModalityTechnicianEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ModalityTechnicianEntry";
+            this.Text = "ModalityTechnicianEntry";            
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.pnlBillDetails.ResumeLayout(false);
             this.pnlBillDetails.PerformLayout();

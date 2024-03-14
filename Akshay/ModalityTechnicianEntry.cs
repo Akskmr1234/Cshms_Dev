@@ -79,16 +79,15 @@ namespace CsHms.Akshay
                 dr["Code"] = node.SelectSingleNode("code").InnerText;
                 dr["Description"] = node.SelectSingleNode("desc").InnerText;
                 dr["Value"] = node.SelectSingleNode("value").InnerText;
-
                 dt.Rows.Add(dr);
             }
-
             return dt;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearAll();
+            
         }
         
         private void ClearAll()
@@ -106,13 +105,13 @@ namespace CsHms.Akshay
             catch (Exception ex)
             { }
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
       
-      
+
+       
     }
 }

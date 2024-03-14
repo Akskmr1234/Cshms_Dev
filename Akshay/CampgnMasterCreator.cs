@@ -146,12 +146,17 @@ namespace CsHms.Akshay
                         string strMobileNums = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_mobile"]);
                         string[] mobileparts=strMobileNums.Split('/');
                         if (mobileparts.Length > 0)
-                            strMobile = mobileparts[0];
-                        else                           
-                         strMobile = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_mobile"]);
-                         strEmail = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_email"]);
-                         strName = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_title"])+" "+ mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_fname"])+" "+mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_lname"]);
-                         strAddress = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_add1"]);
+                        {
+                            strMobile = mobileparts[0].Replace("+91", "").Replace(" ", "").Replace("-","");
+                        }
+                        else
+                        {
+                            string strTrimMobile=mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_mobile"]);
+                            strMobile = strTrimMobile.Replace("+91","").Replace(" ","").Replace("-","");
+                            strEmail = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_email"]);
+                            strName = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_title"]) + " " + mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_fname"]) + " " + mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_lname"]);
+                            strAddress = mCommFunc.ConvertToString(dtOpregdet.Rows[0]["op_add1"]);
+                        }
 
                     }
                     string strRfid = mCommFunc.ConvertToString(dtDgvData.Rows[i]["OrderNo"]);
@@ -185,10 +190,9 @@ namespace CsHms.Akshay
                    
                     
                     // Append the current query to the batch query
-                    if (!CheckALreadyExist(strRefno))
-                    {
+                   
                          res = mGlobal.LocalDBCon.ExecuteNonQuery(strSql);
-                    }
+                    
 
                     // If the batch size is reached or it's the last iteration, execute the batch
                     if ((dtDgvData.Rows.Count - 1) == i )

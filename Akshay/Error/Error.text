@@ -13054,3 +13054,69 @@ The statement has been terminated.
    at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
    at CsHms.Akshay.CampgnMasterCreator.SubmitData() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CampgnMasterCreator.cs:line 182
 **********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:14/03/2024 16:38:42
+String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at CsHms.Akshay.CouponCreator.dtExtTodt_ValueChanged(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 865
+   at System.Windows.Forms.DateTimePicker.OnValueChanged(EventArgs eventargs)
+   at System.Windows.Forms.DateTimePicker.ResetValue()
+   at System.Windows.Forms.DateTimePicker.set_Text(String value)
+   at CsHms.Akshay.CouponCreator.ClearExtendItems() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 79
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 844
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:14/03/2024 16:38:46
+String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at CsHms.Akshay.CouponCreator.dtExtTodt_ValueChanged(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 865
+   at System.Windows.Forms.DateTimePicker.OnValueChanged(EventArgs eventargs)
+   at System.Windows.Forms.DateTimePicker.ResetValue()
+   at System.Windows.Forms.DateTimePicker.set_Text(String value)
+   at CsHms.Akshay.CouponCreator.ClearExtendItems() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 79
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 844
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:14/03/2024 16:39:05
+String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at CsHms.Akshay.CouponCreator.dtExtTodt_ValueChanged(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 865
+   at System.Windows.Forms.DateTimePicker.OnValueChanged(EventArgs eventargs)
+   at System.Windows.Forms.DateTimePicker.ResetValue()
+   at System.Windows.Forms.DateTimePicker.set_Text(String value)
+   at CsHms.Akshay.CouponCreator.ClearExtendItems() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 79
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 844
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:14/03/2024 16:39:31
+String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at CsHms.Akshay.CouponCreator.dtExtTodt_ValueChanged(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 865
+   at System.Windows.Forms.DateTimePicker.OnValueChanged(EventArgs eventargs)
+   at System.Windows.Forms.DateTimePicker.set_Value(DateTime value)
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 837
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:14/03/2024 16:43:38
+String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at CsHms.Akshay.CouponCreator.dtExtTodt_ValueChanged(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 869
+   at System.Windows.Forms.DateTimePicker.OnValueChanged(EventArgs eventargs)
+   at System.Windows.Forms.DateTimePicker.set_Value(DateTime value)
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 841
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:14/03/2024 16:46:05
+String was not recognized as a valid DateTime.
+   at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at System.DateTime.ParseExact(String s, String format, IFormatProvider provider)
+   at CsHms.Akshay.CouponCreator.dtExtTodt_ValueChanged(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 869
+   at System.Windows.Forms.DateTimePicker.OnValueChanged(EventArgs eventargs)
+   at System.Windows.Forms.DateTimePicker.set_Value(DateTime value)
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 841
+**********************************************************************

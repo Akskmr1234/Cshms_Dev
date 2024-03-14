@@ -36,8 +36,12 @@ namespace CsHms.Akshay
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearAll();
+            if (tbCouponCreator.SelectedTab.Name != "tbExtendvalidity")
+                ClearAll();
+            else
+                ClearExtendItems();
         }
+      
         private void ClearAll()
         {
             for (int i = 0; i < chklbkItems.Items.Count; i++)

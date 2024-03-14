@@ -118,7 +118,6 @@ namespace CsHms.Akshay
         {
             try
             {
-
                string strSql=@"select * from doctorappointment where da_newopno='"+strOpno+"'";
                DataTable dtdoctorappointment = mGlobal.LocalDBCon.ExecuteQuery(strSql);
                if (dtdoctorappointment != null && dtdoctorappointment.Rows.Count > 0)
@@ -126,9 +125,7 @@ namespace CsHms.Akshay
                    return true;
                }
                else
-                   return false;
-
- 
+                   return false; 
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message.ToString());
