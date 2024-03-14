@@ -866,7 +866,7 @@ namespace CsHms.Akshay
         {
             DateTime originalDate = dtExtTodt.Value;
             string formattedDate = originalDate.ToString("dd-MM-yyyy 23:59:59");
-            DateTime modifiedDate = DateTime.ParseExact(formattedDate, "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            DateTime modifiedDate = DateTime.ParseExact(formattedDate, "dd-MM-yyyy 23:59:59", System.Globalization.CultureInfo.InvariantCulture);
             dtExtTodttime.Value = dtExtTodt.Value;
         }
 
