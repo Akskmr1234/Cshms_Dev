@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using System.IO;
 
 namespace CsHms.Akshay
 {
@@ -17,6 +18,8 @@ namespace CsHms.Akshay
         }
         Global mGlobal = new Global();
         CommFuncs mCommFunc = new CommFuncs();
+        string xmlContent = "";
+
         private void txtAccessionno_Validating(object sender, CancelEventArgs e)
         {
             GetBillDetails();
@@ -51,10 +54,11 @@ namespace CsHms.Akshay
         {
             try
             {
-                string strSql = @"select xmltm_xmltemplate from xmltemplatemas where xmltm_mapvalue='"+strItemptr+"'";
+                string strSql = @"select xmltm_otherdetails,xmltm_xmltemplate from xmltemplatemas where xmltm_mapvalue='" + strItemptr + "'";
                 DataTable dtxmldetails = mGlobal.LocalDBCon.ExecuteQuery(strSql);
                 if (dtxmldetails != null && dtxmldetails.Rows.Count > 0)
                 {
+                    xmlContent = mCommFunc.ConvertToString(dtxmldetails.Rows[0]["xmltm_otherdetails"]);
                     DataTable dtparsedxml = ParseXMLToDataTable(mCommFunc.ConvertToString(dtxmldetails.Rows[0]["xmltm_xmltemplate"]));
                     return dtparsedxml;
                 }
@@ -73,12 +77,15 @@ namespace CsHms.Akshay
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(xmlString);
 
+            XmlDocument xmldocfilter = new XmlDocument();
+            xmldocfilter.LoadXml(xmlContent);
+
             foreach (XmlNode node in doc.SelectNodes("/root/data"))
             {
                 DataRow dr = dt.NewRow();
                 dr["Code"] = node.SelectSingleNode("code").InnerText;
                 dr["Description"] = node.SelectSingleNode("desc").InnerText;
-                dr["Value"] = node.SelectSingleNode("value").InnerText;
+                dr["Value"] = GetValue(GetValueByItemCode(xmldocfilter, mCommFunc.ConvertToString(node.SelectSingleNode("code").InnerText)));
                 dt.Rows.Add(dr);
             }
             return dt;
@@ -108,6 +115,72 @@ namespace CsHms.Akshay
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        static string GetValueByItemCode(XmlDocument xmlDoc, string itemCode)
+        {
+            XmlNode node = xmlDoc.SelectSingleNode("/root/items[itemcode='" + itemCode + "']/value");
+            return node.InnerText; // Returns null if the node is not found
+        }
+
+        private string GetValue(string searchText)
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("FilePath", typeof(string));
+            dataTable.Columns.Add("RiskScore", typeof(string));
+
+            string rootFolderPath = @"C:\Users\95398\Downloads\CT\CT\"+mCommFunc.ConvertToString(txtAccessionno.Text)+"";
+            string moduleNameTag = "ModuleName";
+            string riskScoreTag = "RiskScore";
+            string typeAttribute = "type";
+            string attributeValue = "TEXT";
+
+            try
+            {
+                string[] pageFolders = Directory.GetDirectories(rootFolderPath);
+
+                foreach (string folder in pageFolders)
+                {
+                    string xmlFilePath = Path.Combine(folder, "index.xml");
+
+                    if (File.Exists(xmlFilePath))
+                    {
+                        XmlDocument xmlDoc = new XmlDocument();
+                        xmlDoc.Load(xmlFilePath);
+
+                        XmlNodeList moduleNodes = xmlDoc.GetElementsByTagName(moduleNameTag);
+
+                        foreach (XmlNode moduleNode in moduleNodes)
+                        {
+                            if (moduleNode.Attributes != null &&
+                                moduleNode.Attributes[typeAttribute] != null &&
+                                moduleNode.Attributes[typeAttribute].Value == attributeValue &&
+                                moduleNode.InnerText.ToUpper() == searchText.ToUpper())
+                            {
+                                // Once the module with the specified search text is found, search for the RiskScore
+                                XmlNodeList riskScoreNodes = xmlDoc.GetElementsByTagName(riskScoreTag);
+                                foreach (XmlNode riskScoreNode in riskScoreNodes)
+                                {
+                                    if (riskScoreNode.Attributes != null &&
+                                        riskScoreNode.Attributes[typeAttribute] != null &&
+                                        riskScoreNode.Attributes[typeAttribute].Value == attributeValue)
+                                    {
+                                        // Assuming you want to return the first match
+                                       
+                                        return riskScoreNode.InnerText.ToString(); // Return the DataRow immediately upon finding the match
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during search: " + ex.Message);
+            }
+
+            // Return null or an empty DataRow if no matching module and risk score were found
+            return null;
         }
 
       

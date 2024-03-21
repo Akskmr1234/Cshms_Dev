@@ -293,6 +293,14 @@ namespace CsHms
             frm.Show();
         }
 
+        private void btnBillUpdate_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.BillUpdate();
+            frm.MdiParent = this;
+            frm.Icon = this.Icon;
+            frm.Show();
+        }
+
      
 
     }

@@ -103,6 +103,7 @@ namespace CsHms
             this.btnOpDoctorappmap = new System.Windows.Forms.Button();
             this.btnCampgnMasterCreator = new System.Windows.Forms.Button();
             this.btnModalityTechnicianEntry = new System.Windows.Forms.Button();
+            this.btnBillUpdate = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -725,12 +726,24 @@ namespace CsHms
             this.btnModalityTechnicianEntry.UseVisualStyleBackColor = true;
             this.btnModalityTechnicianEntry.Click += new System.EventHandler(this.btnModalityTechnicianEntry_Click);
             // 
+            // btnBillUpdate
+            // 
+            this.btnBillUpdate.Location = new System.Drawing.Point(230, 530);
+            this.btnBillUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBillUpdate.Name = "btnBillUpdate";
+            this.btnBillUpdate.Size = new System.Drawing.Size(168, 31);
+            this.btnBillUpdate.TabIndex = 307;
+            this.btnBillUpdate.Text = "Bill Update";
+            this.btnBillUpdate.UseVisualStyleBackColor = true;
+            this.btnBillUpdate.Click += new System.EventHandler(this.btnBillUpdate_Click);
+            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1497, 880);
+            this.Controls.Add(this.btnBillUpdate);
             this.Controls.Add(this.btnModalityTechnicianEntry);
             this.Controls.Add(this.btnCampgnMasterCreator);
             this.Controls.Add(this.btnOpDoctorappmap);
@@ -850,6 +863,7 @@ namespace CsHms
         private System.Windows.Forms.Button btnOpDoctorappmap;
         private System.Windows.Forms.Button btnCampgnMasterCreator;
         private System.Windows.Forms.Button btnModalityTechnicianEntry;
+        private System.Windows.Forms.Button btnBillUpdate;
        
     }
 }
