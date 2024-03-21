@@ -131,7 +131,7 @@ namespace CsHms.Akshay
                     MessageBox.Show("Error Occured");
             }
             catch (Exception ex)
-            { }
+            { MessageBox.Show(ex.Message.ToString()); }
         }
         private bool AlreadyExistDoctorappointment(string strOpno)
         {
