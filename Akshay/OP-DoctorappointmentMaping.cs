@@ -79,11 +79,29 @@ namespace CsHms.Akshay
                 DateTime dtdob = Convert.ToDateTime(dtOpdetails.Rows[0]["op_dob"]);
                 DateTime dtnow = DateTime.Now;
                 TimeSpan agespan = dtnow.Subtract(dtdob);
+                DateTime age = DateTime.MinValue.AddDays(agespan.Days);
                 string strDob = dtdob.ToString("yyyy-MM-dd HH:mm:ss");
-                string strAgeYears = mCommFunc.ConvertToString(agespan.Days / 365);
-                string strAgeMonths = mCommFunc.ConvertToString((agespan.Days % 365) / 30);
-                string strAgeDays = mCommFunc.ConvertToString(agespan.Days % 30);
+                string strAgeYears = mCommFunc.ConvertToString(age.Year-1);
+                string strAgeMonths =mCommFunc.ConvertToString(age.Month-1);
+                string strAgeDays = mCommFunc.ConvertToString(age.Day+1);
+                string strPreregid = "";
+                string strFirmptr = "1";
+                string strBranchptr = "";
 
+                strSql = "select * from firmmas";
+                DataTable dtFirmmas = mGlobal.LocalDBCon.ExecuteQuery(strSql);
+                if (dtFirmmas != null && dtFirmmas.Rows.Count > 0)
+                {
+                    if (mCommFunc.ConvertToString(dtFirmmas.Rows[0]["f_desc"]) == "Nura Mumbai")
+                        strBranchptr = "3";
+                    else if (mCommFunc.ConvertToString(dtFirmmas.Rows[0]["f_desc"]) == "Nura Delhi")
+                        strBranchptr = "2";
+                    else if (mCommFunc.ConvertToString(dtFirmmas.Rows[0]["f_desc"]) == "Nura Hyderabad")
+                        strBranchptr = "4";
+                    else if (mCommFunc.ConvertToString(dtFirmmas.Rows[0]["f_desc"]) == "Nura Bangalore")
+                        strBranchptr = "1";
+
+                }
                 strSql = @"select * from prereg where prereg_username='" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "'";
                 DataTable dtUsercheck = mGlobal.LocalDBCon.ExecuteQuery(strSql);
                 if (dtUsercheck.Rows.Count <= 0)
@@ -105,23 +123,27 @@ namespace CsHms.Akshay
                     }
  
                 }
-                
 
 
-
-                if (!AlreadyExistDoctorappointment(mCommFunc.ConvertToString(txtOpno.Text)))
-                {
-                    strSql = @"insert into doctorappointment (da_doctorptr,da_date,da_opno,da_lname,da_fname,da_add1,da_add2,da_place,da_phone,da_mobile,da_tokenno,da_aptime,da_remarks,da_userid,da_user,da_time,da_canflg,da_canuser,da_canuserid,da_cantime,da_title,da_visitstatus,da_visitid,da_mode,da_paystatus,da_referencetype,da_referenceid,da_bkstatus,da_bkstatususer,da_bkstatusdttm,da_packagetype,da_packagetypevalue,da_newopno,da_billvalue,da_couponvalue,da_couponno,da_delivarymode,da_delivarydttm,da_delivaryaddressid,da_zip,da_landmark,da_questfilled,da_consentfilled,Da_questmailsendstatus,da_consentmailsendstatus,da_fitkitmailsendstatus,da_fitkitstatus,da_billid,da_reportmailsendstatus,da_phyverified,da_rptuploaded,da_phyrptstatus,da_rptstatus,da_email,da_gender,da_dob,da_reportmailsenddttm,da_canremarks,da_sourcetype,da_referrerptr,da_firmptr,da_branchptr,da_samplestatus,da_corporateptr,da_corporateinfo,da_otherdetails1,da_updateduserid,da_updatedtime)  values('22','" + strOpDate + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_lname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_fname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add2"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_place"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_phone"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_mobile"]) + "','" + strTokenNo + "','" + strAddAptime + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_remarks"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_userid"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_user"]) + "','" + strOptime + "',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_title"]) + "',NULL,'-1',NULL,'P','sgn','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_id"]) + "','B','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + strOpDate + "','ITM','" + strGenderptr + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["opb_amt"]) + "',NULL,NULL,'DEF','" + strOpDate + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_corporateinfo"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_zip"]) + "',NULL,'F','',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_id"]) + "',NULL,NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_gender"]) + "','" + strDob + "',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_firmptr"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_branchptr"]) + "',NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_corporateinfo"]) + "',NULL,'1','" + strOpDate + "');";
-                }
-                else
-                { }
 
                 if (!AlreadyExistPrereg(mCommFunc.ConvertToString(txtOpno.Text)))
                 {
-                    strSql += @"insert into prereg (prereg_type,prereg_dt,prereg_tm,prereg_title,prereg_fname,prereg_lname,prereg_gender,prereg_ageday,prereg_agemonth,prereg_ageyear,prereg_dob,prereg_address1,prereg_address2,prereg_city,prereg_phone,prereg_mobile1,prereg_mobile2,prereg_email,prereg_referralno,prereg_username,prereg_password,prereg_opno,prereg_packagetypevalue,prereg_packagetype,prereg_active,updttm,prereg_user,prereg_zip,prereg_landmark,prereg_mob1counrtycode,prereg_mob2counrtycode,prereg_mob1countrycode,prereg_mob2countrycode,prereg_otherdetails1,prereg_firmid,prereg_branchid,prereg_finyearid,prereg_state,prereg_country,prereg_device_notification_id) values('SGN','" + strOpDate + "','" + strOpDate + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_title"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_fname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_lname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_gender"]) + "','" + strAgeDays + "','" + strAgeMonths + "','" + strAgeYears + "','" + strDob+ "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add2"]) + "',NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_phone"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_mobile"]) + "',NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "',NULL,'" + strPreregusername + "','Nura@1234','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + strGenderptr + "','ITM','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_active"]) + "','" + strOpDate + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_user"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_zip"]) + "',NULL,NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_otherdetails1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_firmptr"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_branchptr"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_finyearid"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_state"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_country"]) + "',NULL)";
+                    strSql = @"insert into prereg (prereg_type,prereg_dt,prereg_tm,prereg_title,prereg_fname,prereg_lname,prereg_gender,prereg_ageday,prereg_agemonth,prereg_ageyear,prereg_dob,prereg_address1,prereg_address2,prereg_city,prereg_phone,prereg_mobile1,prereg_mobile2,prereg_email,prereg_referralno,prereg_username,prereg_password,prereg_opno,prereg_packagetypevalue,prereg_packagetype,prereg_active,updttm,prereg_user,prereg_zip,prereg_landmark,prereg_mob1counrtycode,prereg_mob2counrtycode,prereg_mob1countrycode,prereg_mob2countrycode,prereg_otherdetails1,prereg_firmid,prereg_branchid,prereg_finyearid,prereg_state,prereg_country,prereg_device_notification_id) output inserted.prereg_id values('SGN','" + strOpDate + "','" + strOpDate + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_title"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_fname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_lname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_gender"]) + "','" + strAgeDays + "','" + strAgeMonths + "','" + strAgeYears + "','" + strDob + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add2"]) + "',NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_phone"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_mobile"]) + "',NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "',NULL,'" + strPreregusername + "','Nura@1234','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + strGenderptr + "','ITM','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_active"]) + "','" + strOpDate + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_user"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_zip"]) + "',NULL,NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_otherdetails1"]) + "','" + strFirmptr + "','" + strBranchptr+ "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_finyearid"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_state"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_country"]) + "',NULL)";
+                    DataTable dtPreregid = mGlobal.LocalDBCon.ExecuteQuery(strSql);
+                    if (dtPreregid != null && dtPreregid.Rows.Count > 0)
+                        strPreregid = mCommFunc.ConvertToString(dtPreregid.Rows[0][0]); 
+                    
                 }
                 else
                 { }
+
+                if (!AlreadyExistDoctorappointment(mCommFunc.ConvertToString(txtOpno.Text)))
+                {
+                    strSql = @"insert into doctorappointment (da_doctorptr,da_date,da_opno,da_lname,da_fname,da_add1,da_add2,da_place,da_phone,da_mobile,da_tokenno,da_aptime,da_remarks,da_userid,da_user,da_time,da_canflg,da_canuser,da_canuserid,da_cantime,da_title,da_visitstatus,da_visitid,da_mode,da_paystatus,da_referencetype,da_referenceid,da_bkstatus,da_bkstatususer,da_bkstatusdttm,da_packagetype,da_packagetypevalue,da_newopno,da_billvalue,da_couponvalue,da_couponno,da_delivarymode,da_delivarydttm,da_delivaryaddressid,da_zip,da_landmark,da_questfilled,da_consentfilled,Da_questmailsendstatus,da_consentmailsendstatus,da_fitkitmailsendstatus,da_fitkitstatus,da_billid,da_reportmailsendstatus,da_phyverified,da_rptuploaded,da_phyrptstatus,da_rptstatus,da_email,da_gender,da_dob,da_reportmailsenddttm,da_canremarks,da_sourcetype,da_referrerptr,da_firmptr,da_branchptr,da_samplestatus,da_corporateptr,da_corporateinfo,da_otherdetails1,da_updateduserid,da_updatedtime)  values('22','" + strOpDate + "','','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_lname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_fname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add2"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_place"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_phone"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_mobile"]) + "','" + strTokenNo + "','" + strAddAptime + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_remarks"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_userid"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_user"]) + "','" + strOptime + "',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_title"]) + "',NULL,'-1',NULL,'P','sgn','" + strPreregid + "','B','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + strOpDate + "','ITM','" + strGenderptr + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["opb_amt"]) + "',NULL,NULL,'DEF','" + strOpDate + "','" + strPreregid + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_zip"]) + "',NULL,'F','',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_id"]) + "',NULL,NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_gender"]) + "','" + strDob + "',NULL,NULL,NULL,NULL,'" + strFirmptr+ "','" +strBranchptr+ "',NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_corporateinfo"]) + "',NULL,'1','" + strOpDate + "');";
+                }
+                else
+                { }
+
                 int res = mGlobal.LocalDBCon.ExecuteNonQuery(strSql);
                 if (res > 0)
                 {
