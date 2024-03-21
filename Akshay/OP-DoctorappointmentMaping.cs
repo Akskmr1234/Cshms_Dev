@@ -78,12 +78,54 @@ namespace CsHms.Akshay
                 //DateTime strDob = mCommFunc.ChangeDateFormatTo_DD_MM_YYYY(dtOpdetails.Rows[0]["op_dob"]);
                 DateTime dtdob = Convert.ToDateTime(dtOpdetails.Rows[0]["op_dob"]);
                 DateTime dtnow = DateTime.Now;
-                TimeSpan agespan = dtnow.Subtract(dtdob);
-                DateTime age = DateTime.MinValue.AddDays(agespan.Days);
+
+                // Calculate full years
+                int years = dtnow.Year - dtdob.Year;
+                if (dtnow.Month < dtdob.Month || (dtnow.Month == dtdob.Month && dtnow.Day < dtdob.Day))
+                {
+                    years--;
+                }
+
+                // Calculate months
+                int months = 0;
+                if (dtnow.Month >= dtdob.Month)
+                {
+                    months = dtnow.Month - dtdob.Month;
+                    if (dtnow.Day < dtdob.Day)
+                    {
+                        months--;
+                    }
+                }
+                else
+                {
+                    months = 12 - (dtdob.Month - dtnow.Month);
+                    if (dtnow.Day < dtdob.Day)
+                    {
+                        months--;
+                    }
+                }
+
+                // Adjust month if it became negative
+                if (months < 0)
+                {
+                    months += 12;
+                    years--;
+                }
+
+                // Calculate days
+                int days = dtnow.Day - dtdob.Day;
+                if (days < 0)
+                {
+                    // Find the last day of the previous month
+                    DateTime lastDayOfPrevMonth = new DateTime(dtnow.Year, dtnow.Month, 1).AddDays(-1);
+                    days += lastDayOfPrevMonth.Day;
+                }
+
                 string strDob = dtdob.ToString("yyyy-MM-dd HH:mm:ss");
-                string strAgeYears = mCommFunc.ConvertToString(age.Year-1);
-                string strAgeMonths =mCommFunc.ConvertToString(age.Month-1);
-                string strAgeDays = mCommFunc.ConvertToString(age.Day+1);
+                string strAgeYears = years.ToString();
+                string strAgeMonths = months.ToString();
+                string strAgeDays = days.ToString();
+
                 string strPreregid = "";
                 string strFirmptr = "1";
                 string strBranchptr = "";
@@ -139,10 +181,13 @@ namespace CsHms.Akshay
 
                 if (!AlreadyExistDoctorappointment(mCommFunc.ConvertToString(txtOpno.Text)))
                 {
-                    strSql = @"insert into doctorappointment (da_doctorptr,da_date,da_opno,da_lname,da_fname,da_add1,da_add2,da_place,da_phone,da_mobile,da_tokenno,da_aptime,da_remarks,da_userid,da_user,da_time,da_canflg,da_canuser,da_canuserid,da_cantime,da_title,da_visitstatus,da_visitid,da_mode,da_paystatus,da_referencetype,da_referenceid,da_bkstatus,da_bkstatususer,da_bkstatusdttm,da_packagetype,da_packagetypevalue,da_newopno,da_billvalue,da_couponvalue,da_couponno,da_delivarymode,da_delivarydttm,da_delivaryaddressid,da_zip,da_landmark,da_questfilled,da_consentfilled,Da_questmailsendstatus,da_consentmailsendstatus,da_fitkitmailsendstatus,da_fitkitstatus,da_billid,da_reportmailsendstatus,da_phyverified,da_rptuploaded,da_phyrptstatus,da_rptstatus,da_email,da_gender,da_dob,da_reportmailsenddttm,da_canremarks,da_sourcetype,da_referrerptr,da_firmptr,da_branchptr,da_samplestatus,da_corporateptr,da_corporateinfo,da_otherdetails1,da_updateduserid,da_updatedtime)  values('22','" + strOpDate + "','','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_lname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_fname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add2"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_place"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_phone"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_mobile"]) + "','" + strTokenNo + "','" + strAddAptime + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_remarks"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_userid"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_user"]) + "','" + strOptime + "',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_title"]) + "',NULL,'-1',NULL,'P','sgn','" + strPreregid + "','B','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + strOpDate + "','ITM','" + strGenderptr + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["opb_amt"]) + "',NULL,NULL,'DEF','" + strOpDate + "','" + strPreregid + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_zip"]) + "',NULL,'F','',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_id"]) + "',NULL,NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_gender"]) + "','" + strDob + "',NULL,NULL,NULL,NULL,'" + strFirmptr+ "','" +strBranchptr+ "',NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_corporateinfo"]) + "',NULL,'1','" + strOpDate + "');";
+                    strSql = @"insert into doctorappointment (da_doctorptr,da_date,da_opno,da_lname,da_fname,da_add1,da_add2,da_place,da_phone,da_mobile,da_tokenno,da_aptime,da_remarks,da_userid,da_user,da_time,da_canflg,da_canuser,da_canuserid,da_cantime,da_title,da_visitstatus,da_visitid,da_mode,da_paystatus,da_referencetype,da_referenceid,da_bkstatus,da_bkstatususer,da_bkstatusdttm,da_packagetype,da_packagetypevalue,da_newopno,da_billvalue,da_couponvalue,da_couponno,da_delivarymode,da_delivarydttm,da_delivaryaddressid,da_zip,da_landmark,da_questfilled,da_consentfilled,Da_questmailsendstatus,da_consentmailsendstatus,da_fitkitmailsendstatus,da_fitkitstatus,da_billid,da_reportmailsendstatus,da_phyverified,da_rptuploaded,da_phyrptstatus,da_rptstatus,da_email,da_gender,da_dob,da_reportmailsenddttm,da_canremarks,da_sourcetype,da_referrerptr,da_firmptr,da_branchptr,da_samplestatus,da_corporateptr,da_corporateinfo,da_otherdetails1,da_updateduserid,da_updatedtime)  values('22','" + strOpDate + "','','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_lname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_fname"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add1"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_add2"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_place"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_phone"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_mobile"]) + "','" + strTokenNo + "','" + strAddAptime + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_remarks"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_userid"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_user"]) + "','" + strOptime + "',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_title"]) + "',NULL,'-1',NULL,'P','sgn','" + strPreregid + "','B','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + strOpDate + "','ITM','" + strGenderptr + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_no"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["opb_amt"]) + "',NULL,NULL,'DEF','" + strOpDate + "','" + strPreregid + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_zip"]) + "',NULL,NULL,'',NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_id"]) + "',NULL,NULL,NULL,NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_email"]) + "','" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_gender"]) + "','" + strDob + "',NULL,NULL,NULL,NULL,'" + strFirmptr + "','" + strBranchptr + "',NULL,NULL,'" + mCommFunc.ConvertToString(dtOpdetails.Rows[0]["op_corporateinfo"]) + "',NULL,'1','" + strOpDate + "');";
                 }
                 else
-                { }
+                {
+                    MessageBox.Show("Already Exist");
+                    return;
+                }
 
                 int res = mGlobal.LocalDBCon.ExecuteNonQuery(strSql);
                 if (res > 0)
