@@ -64,6 +64,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Res.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.MDIMain.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Properties.Resources.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.BillUpdate.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangeConfig.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangePackage.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangeUserName.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ConfigSettings.resources
@@ -82,6 +83,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OpBillModalityMap.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OPLateDiscEntry.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OpMerge.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.MasterCreater.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.QRApp.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.RCMCoreSettings.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.Remittance.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.SCRFileLinksMap.resources

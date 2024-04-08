@@ -301,6 +301,24 @@ namespace CsHms
             frm.Show();
         }
 
+        private void btnQrApp_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.QRApp();
+            frm.MdiParent = this;
+            frm.Icon = this.Icon;
+            frm.Show();
+        }
+
+        private void btnChangeconfig_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.ChangeConfig();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        
+
      
 
     }

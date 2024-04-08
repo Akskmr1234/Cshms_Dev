@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace CsHms.Akshay
 {
@@ -274,6 +275,7 @@ namespace CsHms.Akshay
                             MessageBox.Show("Coupon Created");
                             GetModeCount();
                             mGlobal.LocalDBCon.CommitTrans();
+                            if(chkBranches.Checked==false)
                             ClearAll();
                         }
                        
@@ -869,6 +871,54 @@ namespace CsHms.Akshay
             DateTime modifiedDate = DateTime.ParseExact(formattedDate, "dd-MM-yyyy 23:59:59", System.Globalization.CultureInfo.InvariantCulture);
             dtExtTodttime.Value = dtExtTodt.Value;
         }
+
+        private void chkBranches_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chkBranches.Checked == true)
+            {
+                cbxBranches.Visible = true;
+            }
+            else
+                cbxBranches.Visible = false;
+        }
+
+        private void cbxBranches_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                string strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("SqlConString");
+
+                SqlConnection Conn = null;
+                DbConnSql dbRemovecon = new DbConnSql(Conn);
+                //DbConnSql dbConString = new DbConnSql(strUpdatedConstring);
+                if (mCommFunc.ConvertToString(cbxBranches.SelectedItem) == "bangalore")
+                {
+                    strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("bangalore");
+                    DbConnSql dbConString = new DbConnSql(strConstring);
+
+                }
+                else if (mCommFunc.ConvertToString(cbxBranches.SelectedItem) == "hyderabad")
+                {
+                    strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("hyderabad");
+                    DbConnSql dbConString = new DbConnSql(strConstring);
+                }
+                else if (mCommFunc.ConvertToString(cbxBranches.SelectedItem) == "gurgaon")
+                {
+                    strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("gurgaon");
+                    DbConnSql dbConString = new DbConnSql(strConstring);
+                }
+                else if (mCommFunc.ConvertToString(cbxBranches.SelectedItem) == "mumbai")
+                {
+                    strConstring = System.Configuration.ConfigurationSettings.AppSettings.Get("mumbai");
+                    DbConnSql dbConString = new DbConnSql(strConstring);
+                }
+                GetModeCount();
+            }
+            catch (Exception ex)
+            { }
+        }
+
+     
 
     }
 }

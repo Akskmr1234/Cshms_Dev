@@ -40,7 +40,13 @@ namespace CsHms.Akshay
 
                 foreach(DataRow dr in dtBillDetail.Rows)
                 {
-                    string strSql = "update billnos set blno_no='" + mCommFunc.ConvertToString(dr["blno_no"]) + "',blno_prefix='" + mCommFunc.ConvertToString(dr["blno_prefix"]) + "',blno_postfix='" + mCommFunc.ConvertToString(dr["blno_postfix"]) + "' where blno_code='" + mCommFunc.ConvertToString(dr["blno_code"]) + "'";
+                    string strSql = "";
+                    if (CheckAlreadyExist(mCommFunc.ConvertToString(dr["blno_code"])))
+                    {
+                         strSql = "update billnos set blno_no='" + mCommFunc.ConvertToString(dr["blno_no"]) + "',blno_prefix='" + mCommFunc.ConvertToString(dr["blno_prefix"]) + "',blno_postfix='" + mCommFunc.ConvertToString(dr["blno_postfix"]) + "',blno_locked='"+mCommFunc.ConvertToString(dr["blno_locked"])+"' where blno_code='" + mCommFunc.ConvertToString(dr["blno_code"]) + "'";
+                    }
+                    else
+                        strSql="insert into billnos (blno_code,blno_no,blno_prefix,blno_postfix,blno_locked) values ('" + mCommFunc.ConvertToString(dr["blno_code"]) + "','" + mCommFunc.ConvertToString(dr["blno_no"]) + "','" + mCommFunc.ConvertToString(dr["blno_prefix"]) + "','" + mCommFunc.ConvertToString(dr["blno_postfix"]) + "','"+mCommFunc.ConvertToString(dr["blno_locked"])+"')";
                     mGloblal.LocalDBCon.ExecuteQuery(strSql);
 
                 }
@@ -50,11 +56,42 @@ namespace CsHms.Akshay
             { MessageBox.Show(ex.Message.ToString()); }
         }
 
+        private bool CheckAlreadyExist(string strBlcode)
+        {
+            try
+            {
+                string strSql = @"select * from billnos where blno_code='"+strBlcode+"'";
+                DataTable dtExist = mGloblal.LocalDBCon.ExecuteQuery(strSql);
+                if (dtExist != null && dtExist.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message.ToString());
+            return false;
+        }
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            BackupTable();
             SaveBillDetails();
         }
 
+        private void BackupTable()
+        {
+            try
+            {
+                string strDate = DateTime.Now.ToString("ddMMMMyyyy_HH_mm_ss");
+                string strSql = "select * into billnos_Backup"+strDate+" from billnos";
+                mGloblal.LocalDBCon.ExecuteQuery(strSql);
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message.ToString()); }
+        }
         private void btnClear_Click(object sender, EventArgs e)
         {
             dgvBIllnos.DataSource = null;

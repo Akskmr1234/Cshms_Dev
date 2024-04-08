@@ -124,9 +124,7 @@ namespace CsHms.Akshay
 
         private string GetValue(string searchText)
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("FilePath", typeof(string));
-            dataTable.Columns.Add("RiskScore", typeof(string));
+           
 
             string rootFolderPath = @"C:\Users\95398\Downloads\CT\CT\"+mCommFunc.ConvertToString(txtAccessionno.Text)+"";
             string moduleNameTag = "ModuleName";

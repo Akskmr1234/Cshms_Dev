@@ -78,6 +78,7 @@ namespace CsHms.Akshay
             this.txtMasMode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCoupons = new System.Windows.Forms.TabPage();
+            this.chkBranches = new System.Windows.Forms.CheckBox();
             this.dgvCoupons = new System.Windows.Forms.DataGridView();
             this.tbExtendvalidity = new System.Windows.Forms.TabPage();
             this.txtExtRemarks = new System.Windows.Forms.TextBox();
@@ -101,6 +102,7 @@ namespace CsHms.Akshay
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.cbxBranches = new System.Windows.Forms.ComboBox();
             this.tbCouponCreator.SuspendLayout();
             this.tbCouponMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMasAvailCount)).BeginInit();
@@ -674,6 +676,8 @@ namespace CsHms.Akshay
             // 
             // tbCoupons
             // 
+            this.tbCoupons.Controls.Add(this.cbxBranches);
+            this.tbCoupons.Controls.Add(this.chkBranches);
             this.tbCoupons.Controls.Add(this.dgvCoupons);
             this.tbCoupons.Location = new System.Drawing.Point(4, 29);
             this.tbCoupons.Name = "tbCoupons";
@@ -683,15 +687,26 @@ namespace CsHms.Akshay
             this.tbCoupons.Text = "Coupons";
             this.tbCoupons.UseVisualStyleBackColor = true;
             // 
+            // chkBranches
+            // 
+            this.chkBranches.AutoSize = true;
+            this.chkBranches.Location = new System.Drawing.Point(38, 24);
+            this.chkBranches.Name = "chkBranches";
+            this.chkBranches.Size = new System.Drawing.Size(161, 24);
+            this.chkBranches.TabIndex = 21;
+            this.chkBranches.Text = "Multiple Branches";
+            this.chkBranches.UseVisualStyleBackColor = true;
+            this.chkBranches.CheckStateChanged += new System.EventHandler(this.chkBranches_CheckStateChanged);
+            // 
             // dgvCoupons
             // 
             this.dgvCoupons.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvCoupons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCoupons.Location = new System.Drawing.Point(3, 6);
+            this.dgvCoupons.Location = new System.Drawing.Point(3, 70);
             this.dgvCoupons.Name = "dgvCoupons";
             this.dgvCoupons.RowHeadersVisible = false;
             this.dgvCoupons.RowTemplate.Height = 28;
-            this.dgvCoupons.Size = new System.Drawing.Size(731, 593);
+            this.dgvCoupons.Size = new System.Drawing.Size(731, 529);
             this.dgvCoupons.TabIndex = 0;
             // 
             // tbExtendvalidity
@@ -918,6 +933,22 @@ namespace CsHms.Akshay
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // cbxBranches
+            // 
+            this.cbxBranches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBranches.FormattingEnabled = true;
+            this.cbxBranches.Items.AddRange(new object[] {
+            "bangalore",
+            "mumbai",
+            "hyderabad",
+            "gurgaon"});
+            this.cbxBranches.Location = new System.Drawing.Point(329, 22);
+            this.cbxBranches.Name = "cbxBranches";
+            this.cbxBranches.Size = new System.Drawing.Size(375, 28);
+            this.cbxBranches.TabIndex = 22;
+            this.cbxBranches.Visible = false;
+            this.cbxBranches.SelectionChangeCommitted += new System.EventHandler(this.cbxBranches_SelectionChangeCommitted);
+            // 
             // CouponCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -937,6 +968,7 @@ namespace CsHms.Akshay
             ((System.ComponentModel.ISupportInitialize)(this.numMasValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numMasDigits)).EndInit();
             this.tbCoupons.ResumeLayout(false);
+            this.tbCoupons.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoupons)).EndInit();
             this.tbExtendvalidity.ResumeLayout(false);
             this.tbExtendvalidity.PerformLayout();
@@ -1019,6 +1051,8 @@ namespace CsHms.Akshay
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtExtRemarks;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.CheckBox chkBranches;
+        private System.Windows.Forms.ComboBox cbxBranches;
 
     }
 }

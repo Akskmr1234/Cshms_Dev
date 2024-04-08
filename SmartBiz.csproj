@@ -110,6 +110,12 @@
     <Compile Include="Akshay\BillUpdate.Designer.cs">
       <DependentUpon>BillUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Akshay\ChangeConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\ChangeConfig.Designer.cs">
+      <DependentUpon>ChangeConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Akshay\ChangePackage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,12 @@
     </Compile>
     <Compile Include="Akshay\QMSMasterCreater.designer.cs">
       <DependentUpon>QMSMasterCreater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\QRApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\QRApp.Designer.cs">
+      <DependentUpon>QRApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Akshay\RCMCoreSettings.cs">
       <SubType>Form</SubType>
@@ -437,6 +449,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>BillUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\ChangeConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ChangeConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Akshay\ChangePackage.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ChangePackage.cs</DependentUpon>
@@ -508,6 +524,10 @@
     <EmbeddedResource Include="Akshay\QMSMasterCreater.resx">
       <DependentUpon>QMSMasterCreater.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\QRApp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QRApp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Akshay\RCMCoreSettings.resx">
       <DependentUpon>RCMCoreSettings.cs</DependentUpon>

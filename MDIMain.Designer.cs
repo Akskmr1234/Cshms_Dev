@@ -104,6 +104,8 @@ namespace CsHms
             this.btnCampgnMasterCreator = new System.Windows.Forms.Button();
             this.btnModalityTechnicianEntry = new System.Windows.Forms.Button();
             this.btnBillUpdate = new System.Windows.Forms.Button();
+            this.btnQrApp = new System.Windows.Forms.Button();
+            this.btnChangeconfig = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -737,12 +739,36 @@ namespace CsHms
             this.btnBillUpdate.UseVisualStyleBackColor = true;
             this.btnBillUpdate.Click += new System.EventHandler(this.btnBillUpdate_Click);
             // 
+            // btnQrApp
+            // 
+            this.btnQrApp.Location = new System.Drawing.Point(230, 571);
+            this.btnQrApp.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnQrApp.Name = "btnQrApp";
+            this.btnQrApp.Size = new System.Drawing.Size(168, 31);
+            this.btnQrApp.TabIndex = 309;
+            this.btnQrApp.Text = "QR App";
+            this.btnQrApp.UseVisualStyleBackColor = true;
+            this.btnQrApp.Click += new System.EventHandler(this.btnQrApp_Click);
+            // 
+            // btnChangeconfig
+            // 
+            this.btnChangeconfig.Location = new System.Drawing.Point(230, 612);
+            this.btnChangeconfig.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnChangeconfig.Name = "btnChangeconfig";
+            this.btnChangeconfig.Size = new System.Drawing.Size(168, 31);
+            this.btnChangeconfig.TabIndex = 311;
+            this.btnChangeconfig.Text = "ChangeConfig";
+            this.btnChangeconfig.UseVisualStyleBackColor = true;
+            this.btnChangeconfig.Click += new System.EventHandler(this.btnChangeconfig_Click);
+            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1497, 880);
+            this.Controls.Add(this.btnChangeconfig);
+            this.Controls.Add(this.btnQrApp);
             this.Controls.Add(this.btnBillUpdate);
             this.Controls.Add(this.btnModalityTechnicianEntry);
             this.Controls.Add(this.btnCampgnMasterCreator);
@@ -864,6 +890,8 @@ namespace CsHms
         private System.Windows.Forms.Button btnCampgnMasterCreator;
         private System.Windows.Forms.Button btnModalityTechnicianEntry;
         private System.Windows.Forms.Button btnBillUpdate;
+        private System.Windows.Forms.Button btnQrApp;
+        private System.Windows.Forms.Button btnChangeconfig;
        
     }
 }

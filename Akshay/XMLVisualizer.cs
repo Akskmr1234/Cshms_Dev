@@ -14,14 +14,14 @@ namespace CsHms.Akshay
         public XMLVisualizer()
         {
             InitializeComponent();
-            Fillnodes("");
+            //Fillnodes("");
         }
         XmlDocument doc = new XmlDocument();
         private void Fillnodes(string filePath)
         {
             try
             {
-                filePath = System.Configuration.ConfigurationSettings.AppSettings.Get("XMLFilepath");
+                //filePath = System.Configuration.ConfigurationSettings.AppSettings.Get("XMLFilepath");
                 doc.Load(filePath);
                 // Use a List to store tag names
                 List<string> tagNames = new List<string>();                   

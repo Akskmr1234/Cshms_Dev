@@ -122,34 +122,30 @@ namespace CsHms.Akshay
                     string charMaxLen = dtTableDetails.Rows[i]["CHARACTER_MAXIMUM_LENGTH"].ToString();
                     string columnDefault = dtTableDetails.Rows[i]["COLUMN_DEFAULT"].ToString();
                     string isNullable = dtTableDetails.Rows[i]["IS_NULLABLE"].ToString();
-
-                     strQueryBuilder = columnName + " " + dataType+" ";
-
-                    // Check if CHARACTER_MAXIMUM_LENGTH exists and append it
+                    string Identity = dtTableDetails.Rows[i]["IDENTITY"].ToString();
+                     strQueryBuilder = columnName + " " + dataType+" ";                    
                      if (!string.IsNullOrEmpty(charMaxLen) && charMaxLen !="NULL" && charMaxLen!="")
                     {
                         strQueryBuilder += " (" + charMaxLen + ") ";
                     }
-
-                    // Check if COLUMN_DEFAULT exists and append it
+                    if (!string.IsNullOrEmpty(Identity) && Identity == "YES" && Identity != "")
+                    {
+                        strQueryBuilder += "IDENTITY(1,1) ";
+                    }
                     if (!string.IsNullOrEmpty(columnDefault) && columnDefault != "NULL" && columnDefault != "")
                     {
                         strQueryBuilder += " default " + columnDefault+",";
                     }
-                    else if (isNullable=="YES")                    
+                    else if (isNullable=="YES")
                         strQueryBuilder +=  "null"+",";
-                    else
+                    else if (isNullable == "NO")
                         strQueryBuilder+="not null"+",";
-
-                    StrQueries.Append(strQueryBuilder);
- 
+                    StrQueries.Append(strQueryBuilder); 
                 }
                 strQueryBuilder = ")";
                 StrQueries.Append(strQueryBuilder);
                 mGlobal.LocalDBCon.ExecuteQuery(StrQueries.ToString());
-                MessageBox.Show("Table Created"); 
-               
-
+                MessageBox.Show("Table Created");
             }
             catch (Exception ex)
             { MessageBox.Show(ex.Message.ToString()); }
