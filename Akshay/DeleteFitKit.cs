@@ -37,10 +37,14 @@ namespace CsHms.Akshay
         {
             try
             {
+                string currentDateTime = DateTime.Now.ToString("ddMMMyyyyHHmmss") +"_"+ txtBillno.Text.ToString();
+
+                mGlobal.LocalDBCon.ExecuteQuery(@"select * into labtresult_Backup_" + currentDateTime + " from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and lbtrs_itemptr='5'");
                 string strSql = "select lbtrs_id from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and lbtrs_itemptr='5'";
                 DataTable dtLabtid = mGlobal.LocalDBCon.ExecuteQuery(strSql);
                 if (dtLabtid != null && dtLabtid.Rows.Count > 0)
                 {
+                    mGlobal.LocalDBCon.ExecuteQuery(@"select * into labtresultd_Backup_" + currentDateTime + " from labtresultd  where lbtrsd_hdrid='" + mCommFunc.ConvertToString(dtLabtid.Rows[0]["lbtrs_id"]) + "' and lbtrsd_itemptr='5'");
                     strSql = "delete from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and lbtrs_itemptr='5'";
                     strSql += "; delete from labtresultd where lbtrsd_hdrid='" + mCommFunc.ConvertToString(dtLabtid.Rows[0]["lbtrs_id"]) + "' and lbtrsd_itemptr='5'";
 
@@ -48,12 +52,15 @@ namespace CsHms.Akshay
                     if (res > 0)
                     {
                         MessageBox.Show("Deleted");
+                        ClearAll();
                     }
                     else
                     {
                         MessageBox.Show("Error occured");
                     }
                 }
+                else
+                { MessageBox.Show("Labresult Not Found"); }
 
             }
             catch (Exception ex)
@@ -61,6 +68,10 @@ namespace CsHms.Akshay
         }
 
         private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
+        }
+        private void ClearAll()
         {
             panel1.Visible = false;
             txtBillno.Text = "";
