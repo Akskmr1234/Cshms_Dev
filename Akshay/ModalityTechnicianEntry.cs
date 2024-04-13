@@ -95,8 +95,7 @@ namespace CsHms.Akshay
         {
             ClearAll();
             
-        }
-        
+        }        
         private void ClearAll()
         {
             try
@@ -124,8 +123,6 @@ namespace CsHms.Akshay
 
         private string GetValue(string searchText)
         {
-           
-
             string rootFolderPath = @"C:\Users\95398\Downloads\CT\CT\"+mCommFunc.ConvertToString(txtAccessionno.Text)+"";
             string moduleNameTag = "ModuleName";
             string riskScoreTag = "RiskScore";

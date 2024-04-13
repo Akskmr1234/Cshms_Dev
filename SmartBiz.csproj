@@ -171,6 +171,12 @@
     <Compile Include="Akshay\DDCList.Designer.cs">
       <DependentUpon>DDCList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Akshay\DeleteFitKit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\DeleteFitKit.Designer.cs">
+      <DependentUpon>DeleteFitKit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Akshay\FirmSelection.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +236,12 @@
     </Compile>
     <Compile Include="Akshay\OpMerge.Designer.cs">
       <DependentUpon>OpMerge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Akshay\PredictiveAI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\PredictiveAI.Designer.cs">
+      <DependentUpon>PredictiveAI.cs</DependentUpon>
     </Compile>
     <Compile Include="Akshay\QMSMasterCreater.cs">
       <SubType>Form</SubType>
@@ -481,6 +493,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>DDCList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\DeleteFitKit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DeleteFitKit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Akshay\FirmSelection.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FirmSelection.cs</DependentUpon>
@@ -520,6 +536,10 @@
     <EmbeddedResource Include="Akshay\OpMerge.resx">
       <DependentUpon>OpMerge.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Akshay\PredictiveAI.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PredictiveAI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Akshay\QMSMasterCreater.resx">
       <DependentUpon>QMSMasterCreater.cs</DependentUpon>

@@ -317,6 +317,21 @@ namespace CsHms
 
         }
 
+        private void btnDeleteFitkit_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.DeleteFitKit();
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void btnPredictiveAi_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.PredictiveAI();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
         
 
      

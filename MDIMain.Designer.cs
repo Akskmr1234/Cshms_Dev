@@ -106,6 +106,8 @@ namespace CsHms
             this.btnBillUpdate = new System.Windows.Forms.Button();
             this.btnQrApp = new System.Windows.Forms.Button();
             this.btnChangeconfig = new System.Windows.Forms.Button();
+            this.btnDeleteFitkit = new System.Windows.Forms.Button();
+            this.btnPredictiveAi = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -761,12 +763,36 @@ namespace CsHms
             this.btnChangeconfig.UseVisualStyleBackColor = true;
             this.btnChangeconfig.Click += new System.EventHandler(this.btnChangeconfig_Click);
             // 
+            // btnDeleteFitkit
+            // 
+            this.btnDeleteFitkit.Location = new System.Drawing.Point(230, 653);
+            this.btnDeleteFitkit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDeleteFitkit.Name = "btnDeleteFitkit";
+            this.btnDeleteFitkit.Size = new System.Drawing.Size(168, 31);
+            this.btnDeleteFitkit.TabIndex = 313;
+            this.btnDeleteFitkit.Text = "Delete FitKit";
+            this.btnDeleteFitkit.UseVisualStyleBackColor = true;
+            this.btnDeleteFitkit.Click += new System.EventHandler(this.btnDeleteFitkit_Click);
+            // 
+            // btnPredictiveAi
+            // 
+            this.btnPredictiveAi.Location = new System.Drawing.Point(230, 696);
+            this.btnPredictiveAi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPredictiveAi.Name = "btnPredictiveAi";
+            this.btnPredictiveAi.Size = new System.Drawing.Size(168, 31);
+            this.btnPredictiveAi.TabIndex = 315;
+            this.btnPredictiveAi.Text = "Predictive AI";
+            this.btnPredictiveAi.UseVisualStyleBackColor = true;
+            this.btnPredictiveAi.Click += new System.EventHandler(this.btnPredictiveAi_Click);
+            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1497, 880);
+            this.Controls.Add(this.btnPredictiveAi);
+            this.Controls.Add(this.btnDeleteFitkit);
             this.Controls.Add(this.btnChangeconfig);
             this.Controls.Add(this.btnQrApp);
             this.Controls.Add(this.btnBillUpdate);
@@ -892,6 +918,8 @@ namespace CsHms
         private System.Windows.Forms.Button btnBillUpdate;
         private System.Windows.Forms.Button btnQrApp;
         private System.Windows.Forms.Button btnChangeconfig;
+        private System.Windows.Forms.Button btnDeleteFitkit;
+        private System.Windows.Forms.Button btnPredictiveAi;
        
     }
 }

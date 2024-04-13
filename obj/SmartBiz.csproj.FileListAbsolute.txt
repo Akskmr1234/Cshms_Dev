@@ -101,3 +101,5 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Search.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.csproj.GenerateResource.Cache
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.exe
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.pdb
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DeleteFitKit.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.PredictiveAI.resources
