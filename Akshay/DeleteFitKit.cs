@@ -37,17 +37,17 @@ namespace CsHms.Akshay
         {
             try
             {
+                //Get the current date and time to set to Backup table
                 string currentDateTime = DateTime.Now.ToString("ddMMMyyyyHHmmss") +"_"+ txtBillno.Text.ToString();
-
+                //Backing up the labtresult 
                 mGlobal.LocalDBCon.ExecuteQuery(@"select * into labtresult_Backup_" + currentDateTime + " from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and lbtrs_itemptr='5'");
                 string strSql = "select lbtrs_id from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and lbtrs_itemptr='5'";
                 DataTable dtLabtid = mGlobal.LocalDBCon.ExecuteQuery(strSql);
                 if (dtLabtid != null && dtLabtid.Rows.Count > 0)
-                {
+                {      // Backup the row labtresultd corresponding to the lbtrs_id              
                     mGlobal.LocalDBCon.ExecuteQuery(@"select * into labtresultd_Backup_" + currentDateTime + " from labtresultd  where lbtrsd_hdrid='" + mCommFunc.ConvertToString(dtLabtid.Rows[0]["lbtrs_id"]) + "' and lbtrsd_itemptr='5'");
-                    strSql = "delete from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtOpno.Tag) + "' and lbtrs_itemptr='5'";
-                    strSql += "; delete from labtresultd where lbtrsd_hdrid='" + mCommFunc.ConvertToString(dtLabtid.Rows[0]["lbtrs_id"]) + "' and lbtrsd_itemptr='5'";
-
+                    strSql = "delete from labtresult where lbtrs_refid='" + mCommFunc.ConvertToString(txtBillno.Tag) + "' and lbtrs_itemptr='5'";
+                    strSql += "; delete from labtresultd where lbtrsd_hdrid='" + mCommFunc.ConvertToString(dtLabtid.Rows[0]["lbtrs_id"]) + "' and lbtrsd_itemptr='5'";                    
                     int res = mGlobal.LocalDBCon.ExecuteNonQuery(strSql);
                     if (res > 0)
                     {

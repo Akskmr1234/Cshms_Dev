@@ -72,6 +72,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.CampgnMasterCreator.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.CouponCreator.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DataInitialize.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DDCList.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DeleteFitKit.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.FirmSelection.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.Firm_Login.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.IP.IPBillCancel.resources
@@ -82,6 +83,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OP_DoctorappointmentMaping.re
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OpBillModalityMap.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OPLateDiscEntry.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.OpMerge.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.PredictiveAI.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.MasterCreater.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.QRApp.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.RCMCoreSettings.resources
@@ -101,5 +103,3 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Search.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.csproj.GenerateResource.Cache
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.exe
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\SmartBiz.pdb
-A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.DeleteFitKit.resources
-A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.PredictiveAI.resources

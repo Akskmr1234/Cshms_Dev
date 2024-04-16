@@ -49,7 +49,7 @@ namespace CsHms.Akshay
             {
                 chklbkItems.SetItemChecked(i, false);
             }
-            txtMasCount.Text = "";
+            txtMasCount.Text = "";            
             txtMasMode.Text = "";
             txtMasPostfix.Text = "";
             txtMasPrefix.Text = "";
@@ -83,7 +83,7 @@ namespace CsHms.Akshay
             dtExtFrmdttime.Text = "";
             dtExtTodt.Text = "";
             dtExtTodttime.Text = "23:59:59";
-            
+            txtExtMode.Text = "";
         }
         private void GetItems()
         {
@@ -832,7 +832,7 @@ namespace CsHms.Akshay
         {
             try
             {
-                string strSql = @"select cmgdcm_id,cmgdcm_description,cmgdcm_fromdt,cmgdcm_fromdttm,cmgdcm_todt,cmgdcm_todttm,cmgdcm_remarks from campgndiscountmas join campgndiscountcoupons on cmgdcm_id=cmgdcpn_campgndiscountmasptr where cmgdcpn_couponnumber='" + txtExtCouponCode.Text + "' ";
+                string strSql = @"select cmgdcm_id,cmgdcm_mode,cmgdcm_description,cmgdcm_fromdt,cmgdcm_fromdttm,cmgdcm_todt,cmgdcm_todttm,cmgdcm_remarks from campgndiscountmas join campgndiscountcoupons on cmgdcm_id=cmgdcpn_campgndiscountmasptr where cmgdcpn_couponnumber='" + txtExtCouponCode.Text + "' ";
                 DataTable dtExtenddata = mGlobal.LocalDBCon.ExecuteQuery(strSql);
                 if (dtExtenddata != null && dtExtenddata.Rows.Count > 0)
                 {
@@ -843,6 +843,7 @@ namespace CsHms.Akshay
                     dtExtTodt.Value = Convert.ToDateTime(dtExtenddata.Rows[0]["cmgdcm_todt"]);
                     dtExtTodttime.Value = Convert.ToDateTime(dtExtenddata.Rows[0]["cmgdcm_todttm"]);
                     txtExtCouponCode.Tag = mCommFunc.ConvertToString(dtExtenddata.Rows[0]["cmgdcm_id"]);
+                    txtExtMode.Text = mCommFunc.ConvertToString(dtExtenddata.Rows[0]["cmgdcm_mode"]);
                 }
                 else
                 {

@@ -78,6 +78,7 @@ namespace CsHms.Akshay
             this.txtMasMode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbCoupons = new System.Windows.Forms.TabPage();
+            this.cbxBranches = new System.Windows.Forms.ComboBox();
             this.chkBranches = new System.Windows.Forms.CheckBox();
             this.dgvCoupons = new System.Windows.Forms.DataGridView();
             this.tbExtendvalidity = new System.Windows.Forms.TabPage();
@@ -102,7 +103,8 @@ namespace CsHms.Akshay
             this.btnExit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.cbxBranches = new System.Windows.Forms.ComboBox();
+            this.txtExtMode = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.tbCouponCreator.SuspendLayout();
             this.tbCouponMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numMasAvailCount)).BeginInit();
@@ -687,6 +689,22 @@ namespace CsHms.Akshay
             this.tbCoupons.Text = "Coupons";
             this.tbCoupons.UseVisualStyleBackColor = true;
             // 
+            // cbxBranches
+            // 
+            this.cbxBranches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBranches.FormattingEnabled = true;
+            this.cbxBranches.Items.AddRange(new object[] {
+            "bangalore",
+            "mumbai",
+            "hyderabad",
+            "gurgaon"});
+            this.cbxBranches.Location = new System.Drawing.Point(329, 22);
+            this.cbxBranches.Name = "cbxBranches";
+            this.cbxBranches.Size = new System.Drawing.Size(375, 28);
+            this.cbxBranches.TabIndex = 22;
+            this.cbxBranches.Visible = false;
+            this.cbxBranches.SelectionChangeCommitted += new System.EventHandler(this.cbxBranches_SelectionChangeCommitted);
+            // 
             // chkBranches
             // 
             this.chkBranches.AutoSize = true;
@@ -711,6 +729,8 @@ namespace CsHms.Akshay
             // 
             // tbExtendvalidity
             // 
+            this.tbExtendvalidity.Controls.Add(this.label37);
+            this.tbExtendvalidity.Controls.Add(this.txtExtMode);
             this.tbExtendvalidity.Controls.Add(this.txtExtRemarks);
             this.tbExtendvalidity.Controls.Add(this.label36);
             this.tbExtendvalidity.Controls.Add(this.label35);
@@ -933,21 +953,24 @@ namespace CsHms.Akshay
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // cbxBranches
+            // txtExtMode
             // 
-            this.cbxBranches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxBranches.FormattingEnabled = true;
-            this.cbxBranches.Items.AddRange(new object[] {
-            "bangalore",
-            "mumbai",
-            "hyderabad",
-            "gurgaon"});
-            this.cbxBranches.Location = new System.Drawing.Point(329, 22);
-            this.cbxBranches.Name = "cbxBranches";
-            this.cbxBranches.Size = new System.Drawing.Size(375, 28);
-            this.cbxBranches.TabIndex = 22;
-            this.cbxBranches.Visible = false;
-            this.cbxBranches.SelectionChangeCommitted += new System.EventHandler(this.cbxBranches_SelectionChangeCommitted);
+            this.txtExtMode.ForeColor = System.Drawing.Color.Black;
+            this.txtExtMode.Location = new System.Drawing.Point(507, 43);
+            this.txtExtMode.MaxLength = 25;
+            this.txtExtMode.Name = "txtExtMode";
+            this.txtExtMode.ReadOnly = true;
+            this.txtExtMode.Size = new System.Drawing.Size(216, 26);
+            this.txtExtMode.TabIndex = 62;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(397, 49);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(49, 20);
+            this.label37.TabIndex = 63;
+            this.label37.Text = "Mode";
             // 
             // CouponCreator
             // 
@@ -1053,6 +1076,8 @@ namespace CsHms.Akshay
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.CheckBox chkBranches;
         private System.Windows.Forms.ComboBox cbxBranches;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox txtExtMode;
 
     }
 }

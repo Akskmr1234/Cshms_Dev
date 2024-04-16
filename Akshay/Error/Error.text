@@ -17830,3 +17830,45 @@ ExecuteReader requires the command to have a transaction when the connection ass
    at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
    at CsHms.Akshay.CouponCreator.GetModeCount() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 427
 **********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: GetModeCount ON:16/04/2024 16:20:11
+The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
+   at CsHms.Akshay.CouponCreator.GetModeCount() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 428
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: GetModeCount ON:16/04/2024 16:20:22
+The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
+   at CsHms.Akshay.CouponCreator.GetModeCount() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 428
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: FillCouponExtendedValidity ON:16/04/2024 16:20:25
+The ConnectionString property has not been initialized.
+   at System.Data.SqlClient.SqlConnection.PermissionDemand()
+   at System.Data.SqlClient.SqlConnectionFactory.PermissionDemand(DbConnection outerConnection)
+   at System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.QuietOpen(IDbConnection connection, ConnectionState& originalState)
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
+   at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 837
+**********************************************************************
