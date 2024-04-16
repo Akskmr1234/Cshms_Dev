@@ -63,6 +63,7 @@ A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Waitfrm.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Res.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.MDIMain.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Properties.Resources.resources
+A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.AppUpdator.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.BillUpdate.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangeConfig.resources
 A:\soxo\New Cshms\Cshms_Dev\obj\Debug\CsHms.Akshay.ChangePackage.resources

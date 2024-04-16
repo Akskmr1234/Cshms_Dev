@@ -104,6 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Akshay\AppUpdator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Akshay\AppUpdator.Designer.cs">
+      <DependentUpon>AppUpdator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Akshay\BillUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -457,6 +463,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Akshay\Error\Error.text" />
+    <EmbeddedResource Include="Akshay\AppUpdator.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AppUpdator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Akshay\BillUpdate.resx">
       <SubType>Designer</SubType>
       <DependentUpon>BillUpdate.cs</DependentUpon>

@@ -108,6 +108,7 @@ namespace CsHms
             this.btnChangeconfig = new System.Windows.Forms.Button();
             this.btnDeleteFitkit = new System.Windows.Forms.Button();
             this.btnPredictiveAi = new System.Windows.Forms.Button();
+            this.btnAppupdator = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -785,12 +786,24 @@ namespace CsHms
             this.btnPredictiveAi.UseVisualStyleBackColor = true;
             this.btnPredictiveAi.Click += new System.EventHandler(this.btnPredictiveAi_Click);
             // 
+            // btnAppupdator
+            // 
+            this.btnAppupdator.Location = new System.Drawing.Point(230, 737);
+            this.btnAppupdator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAppupdator.Name = "btnAppupdator";
+            this.btnAppupdator.Size = new System.Drawing.Size(168, 31);
+            this.btnAppupdator.TabIndex = 317;
+            this.btnAppupdator.Text = "App Updator";
+            this.btnAppupdator.UseVisualStyleBackColor = true;
+            this.btnAppupdator.Click += new System.EventHandler(this.btnAppupdator_Click);
+            // 
             // MDIMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1497, 880);
+            this.Controls.Add(this.btnAppupdator);
             this.Controls.Add(this.btnPredictiveAi);
             this.Controls.Add(this.btnDeleteFitkit);
             this.Controls.Add(this.btnChangeconfig);
@@ -920,6 +933,7 @@ namespace CsHms
         private System.Windows.Forms.Button btnChangeconfig;
         private System.Windows.Forms.Button btnDeleteFitkit;
         private System.Windows.Forms.Button btnPredictiveAi;
+        private System.Windows.Forms.Button btnAppupdator;
        
     }
 }

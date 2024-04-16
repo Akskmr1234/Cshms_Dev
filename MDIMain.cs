@@ -332,6 +332,13 @@ namespace CsHms
             frm.Show();
         }
 
+        private void btnAppupdator_Click(object sender, EventArgs e)
+        {
+            Form frm = new CsHms.Akshay.AppUpdator();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
         
 
      
