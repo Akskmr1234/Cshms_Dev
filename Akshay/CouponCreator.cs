@@ -918,8 +918,5 @@ namespace CsHms.Akshay
             catch (Exception ex)
             { }
         }
-
-     
-
     }
 }

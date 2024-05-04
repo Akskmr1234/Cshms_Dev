@@ -37,10 +37,11 @@ namespace CsHms.Akshay
                 gitProcess.StartInfo.RedirectStandardError = true;
                 gitProcess.OutputDataReceived += GitOutputHandler;
                 gitProcess.ErrorDataReceived += GitOutputHandler;
+
                 gitProcess.Start();
                 gitProcess.BeginOutputReadLine();
                 gitProcess.BeginErrorReadLine();
-                gitProcess.WaitForExit();
+                gitProcess.WaitForExit(); // Wait for fetch to complete
 
                 // Pull changes after fetching
                 gitProcess.StartInfo.Arguments = "pull";
@@ -51,10 +52,11 @@ namespace CsHms.Akshay
 
                 // Re-enable the button after command execution
                 btnUpdate.Enabled = true;
-                
             }
             catch (Exception ex)
-            { MessageBox.Show(ex.Message.ToString()); }
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

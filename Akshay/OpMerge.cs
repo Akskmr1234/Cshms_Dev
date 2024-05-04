@@ -312,7 +312,7 @@ namespace CsHms.Akshay
                             string duplicateOpNO = txtD_opno.Text;
                             strqueries = strqueries.Replace("~ActualOpNO~;", actualOpNO).Replace("~DuplicateOpNO~;", duplicateOpNO);
 
-                            res = mGlobal.LocalDBCon.ExecuteNonQuery(strqueries);
+                            res = mGlobal.LocalDBCon.ExecuteNonQuery_OnTran(strqueries);
 
                             if (res <= 0)
                             {
@@ -366,7 +366,7 @@ namespace CsHms.Akshay
 
                 string currentDateTime = DateTime.Now.ToString("ddMMMyyyy")+txtD_opno.Text.ToString();
 
-                int res = mGlobal.LocalDBCon.ExecuteNonQuery(@"select * into " + strTablename.ToString() + "_Backup_" + currentDateTime + " from " + strTablename.ToString());
+                int res = mGlobal.LocalDBCon.ExecuteNonQuery_OnTran(@"select * into " + strTablename.ToString() + "_Backup_" + currentDateTime + " from " + strTablename.ToString());
                 if (res <= 0)
                 {
                     MessageBox.Show("backup '" + strTablename + "' failed");

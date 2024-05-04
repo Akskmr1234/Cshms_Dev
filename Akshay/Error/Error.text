@@ -17872,3 +17872,39 @@ The ConnectionString property has not been initialized.
    at DbConnSql.ExecuteQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 119
    at CsHms.Akshay.CouponCreator.FillCouponExtendedValidity() in A:\soxo\New Cshms\Cshms_Dev\Akshay\CouponCreator.cs:line 837
 **********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: BackupTable ON:28/04/2024 15:00:49
+ExecuteNonQuery requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.OpMerge.BackupTable(String strTablename) in A:\soxo\New Cshms\Cshms_Dev\Akshay\OpMerge.cs:line 369
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: btnMerge_Click ON:28/04/2024 15:00:49
+ExecuteNonQuery requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.OpMerge.btnMerge_Click(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\OpMerge.cs:line 315
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: BackupTable ON:28/04/2024 15:01:45
+ExecuteNonQuery requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.OpMerge.BackupTable(String strTablename) in A:\soxo\New Cshms\Cshms_Dev\Akshay\OpMerge.cs:line 369
+**********************************************************************
+**********************************************************************
+TMR_Error_Log=> An Error occurred: btnMerge_Click ON:28/04/2024 15:02:08
+ExecuteNonQuery requires the command to have a transaction when the connection assigned to the command is in a pending local transaction.  The Transaction property of the command has not been initialized.
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at DbConnSql.ExecuteNonQuery(String Sql) in A:\soxo\New Cshms\Cshms_Dev\dat\dbClasses\DbConnSql.cs:line 105
+   at CsHms.Akshay.OpMerge.btnMerge_Click(Object sender, EventArgs e) in A:\soxo\New Cshms\Cshms_Dev\Akshay\OpMerge.cs:line 315
+**********************************************************************
